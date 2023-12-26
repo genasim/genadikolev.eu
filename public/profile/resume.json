@@ -1,0 +1,25 @@
+[
+    {
+        "name": "XYZ Ltd",
+        "place": "Abu Dabi",
+        "date": "06/20XX – Present",
+        "roles": [
+            {
+                "title": "Software Engineer",
+                "type": "Full-time",
+                "descriptions": [
+                    "Integrated **2** new product.",
+                    "Worked on adding **def** to **bcd**. Improved speed by 50%."
+                ]
+            },
+            {
+                "title": "Engineer",
+                "type": "Full-time",
+                "descriptions": [
+                    "Integrated **2** new product.",
+                    "Worked on adding **def** to **bcd**. Improved speed by 50%."
+                ]
+            }
+        ]
+    }
+]

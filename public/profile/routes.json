@@ -16,6 +16,10 @@
             "headerTitle": "Education"
         },
         {
+            "component": "Resume",
+            "path": "/resume"
+        },
+        {
             "component": "Experience",
             "path": "/experience",
             "headerTitle": "Experience"
