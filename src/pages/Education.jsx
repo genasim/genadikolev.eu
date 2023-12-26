@@ -1,29 +1,23 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { Chrono } from 'react-chrono';
-import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { Chrono } from 'react-chrono';
 import Fade from 'react-reveal';
 import { ThemeContext } from 'styled-components';
-import endpoints from '../constants/endpoints';
-import Header from '../components/Header';
 import FallbackSpinner from '../components/FallbackSpinner';
+import Header from '../components/Header';
+import useEndpoint from '../components/useEndpoint';
 import '../css/education.css';
 
 function Education(props) {
   const theme = useContext(ThemeContext);
   const { header } = props;
-  const [data, setData] = useState(null);
   const [width, setWidth] = useState('50vw');
   const [mode, setMode] = useState('VERTICAL_ALTERNATING');
 
-  useEffect(() => {
-    fetch(endpoints.education, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
+  const { data } = useEndpoint('education');
 
+  useEffect(() => {
     if (window?.innerWidth < 576) {
       setMode('VERTICAL');
     }
@@ -50,7 +44,7 @@ function Education(props) {
                 hideControls
                 allowDynamicUpdate
                 useReadMore={false}
-                items={data.education}
+                items={data}
                 cardHeight={250}
                 mode={mode}
                 theme={{
@@ -62,7 +56,7 @@ function Education(props) {
                 }}
               >
                 <div className="chrono-icons">
-                  {data.education.map((education) => (education.icon ? (
+                  {data.map((education) => (education.icon ? (
                     <img
                       key={education.icon.src}
                       src={education.icon.src}

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Typewriter from 'typewriter-effect';
+import React from 'react';
 import Fade from 'react-reveal';
-import endpoints from '../constants/endpoints';
-import Social from '../components/Social';
+import Typewriter from 'typewriter-effect';
 import FallbackSpinner from '../components/FallbackSpinner';
+import Social from '../components/Social';
+import useEndpoint from '../components/useEndpoint';
 
 const styles = {
   nameStyle: {
@@ -22,16 +22,7 @@ const styles = {
 };
 
 function Home() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch(endpoints.home, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
+  const { data } = useEndpoint('home');
 
   return data ? (
     <Fade>

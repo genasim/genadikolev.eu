@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
-import Fade from 'react-reveal';
+import React from 'react';
 import { Container } from 'react-bootstrap';
-import Header from '../components/Header';
-import endpoints from '../constants/endpoints';
+import ReactMarkdown from 'react-markdown';
+import Fade from 'react-reveal';
 import FallbackSpinner from '../components/FallbackSpinner';
+import Header from '../components/Header';
+import useEndpoint from '../components/useEndpoint';
 
 const styles = {
   iconStyle: {
@@ -21,7 +21,6 @@ const styles = {
 
 function Skills(props) {
   const { header } = props;
-  const [data, setData] = useState(null);
 
   const renderSkillsIntro = (intro) => (
     <h4 style={styles.introTextContainer}>
@@ -29,14 +28,7 @@ function Skills(props) {
     </h4>
   );
 
-  useEffect(() => {
-    fetch(endpoints.skills, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
+  const { data } = useEndpoint('skills');
 
   return (
     <>

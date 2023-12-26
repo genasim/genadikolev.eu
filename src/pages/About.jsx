@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { Container, Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import ReactMarkdown from 'react-markdown';
 import Fade from 'react-reveal';
-import Header from '../components/Header';
-import endpoints from '../constants/endpoints';
 import FallbackSpinner from '../components/FallbackSpinner';
+import Header from '../components/Header';
+import useEndpoint from '../components/useEndpoint';
 
 const styles = {
   introTextContainer: {
@@ -26,7 +26,6 @@ const styles = {
 
 function About(props) {
   const { header } = props;
-  const [data, setData] = useState(null);
 
   const parseIntro = (text) => (
     <ReactMarkdown
@@ -34,14 +33,7 @@ function About(props) {
     />
   );
 
-  useEffect(() => {
-    fetch(endpoints.about, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
+  const { data } = useEndpoint('about');
 
   return (
     <>
