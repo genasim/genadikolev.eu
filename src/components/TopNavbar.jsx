@@ -21,7 +21,7 @@ const InternalNavLink = styled(NavLink)`
   }
 `;
 
-const NavBar = () => {
+const TopNavbar = () => {
   const theme = useContext(ThemeContext);
   const { data } = useEndpoint('social');
 
@@ -58,5 +58,5 @@ const NavBar = () => {
   );
 };
 
-const NavBarWithRouter = withRouter(NavBar);
-export default NavBarWithRouter;
+const TopNavbarWithRouter = withRouter(TopNavbar);
+export default TopNavbarWithRouter;

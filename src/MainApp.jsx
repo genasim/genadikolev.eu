@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import FallbackSpinner from './components/FallbackSpinner';
-import NavBarWithRouter from './components/NavBar';
+import TopNavbarWithRouter from './components/TopNavbar';
 import useEndpoint from './components/useEndpoint';
 import Home from './pages/Home';
 
@@ -12,7 +12,7 @@ function MainApp() {
 
   return (
     <div>
-      <NavBarWithRouter />
+      <TopNavbarWithRouter />
       <main className="main">
         <Switch>
           <Suspense fallback={<FallbackSpinner />}>
