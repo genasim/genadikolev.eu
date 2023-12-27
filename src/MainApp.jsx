@@ -1,42 +1,34 @@
-import React, { useState, useEffect, Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import FallbackSpinner from './components/FallbackSpinner';
 import NavBarWithRouter from './components/NavBar';
+import useEndpoint from './components/useEndpoint';
 import Home from './pages/Home';
-import endpoints from './constants/endpoints';
 
 function MainApp() {
-  const [data, setData] = useState(null);
+  const { data } = useEndpoint('routes');
 
-  useEffect(() => {
-    fetch(endpoints.routes, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
+  if (!data) return <FallbackSpinner />;
 
   return (
-    <div className="MainApp">
+    <div>
       <NavBarWithRouter />
       <main className="main">
         <Switch>
           <Suspense fallback={<FallbackSpinner />}>
             <Route exact path="/" component={Home} />
-            {data
-              && data.sections.map((route) => {
-                const SectionComponent = React.lazy(() => import('./pages/' + route.component));
-                return (
-                  <Route
-                    key={route.headerTitle}
-                    path={route.path}
-                    component={() => (
-                      <SectionComponent header={route.headerTitle} />
-                    )}
-                  />
-                );
-              })}
+            {data.sections.map((route) => {
+              const SectionComponent = React.lazy(() => import('./pages/' + route.component));
+              return (
+                <Route
+                  key={route.headerTitle}
+                  path={route.path}
+                  component={() => (
+                    <SectionComponent header={route.headerTitle} />
+                  )}
+                />
+              );
+            })}
           </Suspense>
         </Switch>
       </main>
