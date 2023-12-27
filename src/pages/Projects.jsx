@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import { ThemeContext } from 'styled-components';
 import FallbackSpinner from '../components/FallbackSpinner';
-import Header from '../components/Header';
 import ProjectCard from '../components/ProjectCard';
 import useEndpoint from '../components/useEndpoint';
 
@@ -17,9 +15,8 @@ const styles = {
   },
 };
 
-const Projects = (props) => {
+const Projects = () => {
   const theme = useContext(ThemeContext);
-  const { header } = props;
   const [showMore, setShowMore] = useState(false);
 
   const { data } = useEndpoint('projects');
@@ -27,7 +24,6 @@ const Projects = (props) => {
   const numberOfItems = showMore && data ? data.length : 6;
   return (
     <>
-      <Header title={header} />
       {data
         ? (
           <div className="section-content-container">
@@ -55,10 +51,6 @@ const Projects = (props) => {
         ) : <FallbackSpinner /> }
     </>
   );
-};
-
-Projects.propTypes = {
-  header: PropTypes.string.isRequired,
 };
 
 export default Projects;

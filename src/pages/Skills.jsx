@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import Fade from 'react-reveal';
 import FallbackSpinner from '../components/FallbackSpinner';
-import Header from '../components/Header';
 import useEndpoint from '../components/useEndpoint';
 
 const styles = {
@@ -19,9 +17,7 @@ const styles = {
   },
 };
 
-function Skills(props) {
-  const { header } = props;
-
+function Skills() {
   const renderSkillsIntro = (intro) => (
     <h4 style={styles.introTextContainer}>
       <ReactMarkdown children={intro} />
@@ -32,7 +28,6 @@ function Skills(props) {
 
   return (
     <>
-      <Header title={header} />
       {data ? (
         <Fade>
           <div className="section-content-container">
@@ -57,13 +52,11 @@ function Skills(props) {
             </Container>
           </div>
         </Fade>
-      ) : <FallbackSpinner /> }
+      ) : (
+        <FallbackSpinner />
+      )}
     </>
   );
 }
-
-Skills.propTypes = {
-  header: PropTypes.string.isRequired,
-};
 
 export default Skills;
