@@ -21,6 +21,7 @@ function MainApp() {
               const SectionComponent = React.lazy(() => import('./pages/' + route.component));
               return (
                 <Route
+                  exact
                   key={route.headerTitle}
                   path={route.path}
                   component={() => (

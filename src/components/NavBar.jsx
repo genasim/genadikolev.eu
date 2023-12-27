@@ -1,26 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+/* eslint-disable object-curly-newline */
+import React, { useContext } from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { TbDownload } from 'react-icons/tb';
 import { withRouter } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import styled, { ThemeContext } from 'styled-components';
-import endpoints from '../constants/endpoints';
-
-const styles = {
-  logoStyle: {
-    width: 50,
-    height: 40,
-  },
-};
-
-const ExternalNavLink = styled.a`
-  color: ${(props) => props.theme.navbarTheme.linkColor};
-  &:hover {
-    color: ${(props) => props.theme.navbarTheme.linkHoverColor};
-  }
-  &::after {
-    background-color: ${(props) => props.theme.accentColor};
-  }
-`;
+import pages from '../pages';
+import useEndpoint from './useEndpoint';
 
 const InternalNavLink = styled(NavLink)`
   color: ${(props) => props.theme.navbarTheme.linkColor};
@@ -37,72 +23,36 @@ const InternalNavLink = styled(NavLink)`
 
 const NavBar = () => {
   const theme = useContext(ThemeContext);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch(endpoints.navbar, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
+  const { data } = useEndpoint('social');
 
   return (
-    <Navbar
-      fixed="top"
-      expand="md"
-      bg="dark"
-      variant="dark"
-      className="navbar-custom"
-    >
-      <Container>
-        {data?.logo && (
-          <Navbar.Brand href="/">
-            <img
-              src={data?.logo?.source}
-              className="d-inline-block align-top"
-              alt="main logo"
-              style={
-                data?.logo?.height && data?.logo?.width
-                  ? { height: data?.logo?.height, width: data?.logo?.width }
-                  : styles.logoStyle
-              }
-            />
-          </Navbar.Brand>
-        )}
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-        />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto" />
-          <Nav>
-            {data
-              && data.sections?.map((section, index) => (section?.type === 'link' ? (
-                <ExternalNavLink
-                  key={section.title}
-                  href={section.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="navbar__link"
-                  theme={theme}
-                >
-                  {section.title}
-                </ExternalNavLink>
-              ) : (
-                <InternalNavLink
-                  key={section.title}
-                  exact={index === 0}
-                  activeClassName="navbar__link--active"
-                  className="navbar__link"
-                  to={section.href}
-                  theme={theme}
-                >
-                  {section.title}
-                </InternalNavLink>
-              )))}
-          </Nav>
-        </Navbar.Collapse>
+    <Navbar fixed="top" expand="md" bg="dark" className="p-3">
+      <Container className="d-flex justify-content-center">
+        <Nav className="align-items-center">
+          {pages.map((page, index) => (
+            <InternalNavLink
+              key={page.title}
+              exact={index === 0}
+              activeClassName="navbar__link--active"
+              className="navbar__link"
+              to={page.path}
+              theme={theme}
+            >
+              {page.title}
+            </InternalNavLink>
+          ))}
+          {data && (
+            <Button
+              className="d-flex justify-content-around align-items-center mx-5"
+              style={{ background: theme.accentColor, border: '0px', width: '9.5rem' }}
+              href={data.cv}
+              target="_blank"
+            >
+              <TbDownload />
+              Download CV
+            </Button>
+          )}
+        </Nav>
       </Container>
     </Navbar>
   );
