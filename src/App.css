@@ -37,17 +37,6 @@
   width: 100%;
 }
 
-.MainApp {
-  margin-top: 8vh;
-  height: 90vh;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
 .section-content-container {
   display: flex;
   flex-direction: column;
