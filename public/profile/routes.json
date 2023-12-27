@@ -17,7 +17,8 @@
         },
         {
             "component": "Resume",
-            "path": "/resume"
+            "path": "/resume",
+            "headerTitle": "Resume"
         },
         {
             "component": "Experience",
