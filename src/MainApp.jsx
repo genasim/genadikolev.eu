@@ -17,14 +17,14 @@ function MainApp() {
         <Switch>
           <Suspense fallback={<FallbackSpinner />}>
             <Route exact path="/" component={Home} />
-            {data.sections.map((route) => {
+            {data.map((route) => {
               const SectionComponent = React.lazy(() => import('./pages/' + route.component));
               return (
                 <Route
                   key={route.headerTitle}
                   path={route.path}
                   component={() => (
-                    <SectionComponent header={route.headerTitle} />
+                    <SectionComponent />
                   )}
                 />
               );
