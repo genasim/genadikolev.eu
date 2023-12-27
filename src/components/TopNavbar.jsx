@@ -26,7 +26,7 @@ const TopNavbar = () => {
   const { data } = useEndpoint('social');
 
   return (
-    <Navbar fixed="top" bg="dark" className="p-3">
+    <Navbar sticky="top" bg="dark" className="p-3">
       <Container className="d-flex justify-content-center">
         <Nav className="align-items-center">
           {pages.map((page, index) => (

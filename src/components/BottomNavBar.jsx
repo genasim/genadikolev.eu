@@ -16,7 +16,7 @@ const BottomNavbar = () => {
   const { data } = useEndpoint('social');
 
   return (
-    <Navbar fixed="bottom" bg="dark" className="p-2">
+    <Navbar sticky="bottom" bg="dark" className="p-2">
       <Container className="d-flex justify-content-evenly">
         {pages.map((page) => (
           <IconButton key={page.title} page={page} />

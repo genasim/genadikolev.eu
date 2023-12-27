@@ -1,7 +1,7 @@
 [
   {
-    "component": "About",
-    "path": "/about"
+    "component": "Home",
+    "path": "/"
   },
   {
     "component": "Skills",
