@@ -17,7 +17,7 @@ function App() {
     <AppContext.Provider value={{ darkMode }}>
       <ThemeProvider theme={darkTheme}>
         <GlobalStyles />
-        <div className="App">
+        <div>
           <BrowserRouter>
             <MainApp />
           </BrowserRouter>

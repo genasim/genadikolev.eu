@@ -1,12 +1,3 @@
-
-.App {
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-}
-
 .navbar-custom {
   font-size:large;
 }
