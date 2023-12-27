@@ -11,19 +11,9 @@
             "headerTitle": "Skills"
         },
         {
-            "component": "Education",
-            "path": "/education",
-            "headerTitle": "Education"
-        },
-        {
             "component": "Resume",
             "path": "/resume",
             "headerTitle": "Resume"
-        },
-        {
-            "component": "Experience",
-            "path": "/experience",
-            "headerTitle": "Experience"
         },
         {
             "component": "Projects",
