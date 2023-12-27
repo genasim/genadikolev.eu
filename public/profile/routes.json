@@ -1,24 +1,18 @@
-{
-    "sections": [
-        {
-            "component": "About",
-            "path": "/about",
-            "headerTitle": "About"
-        },
-        {
-            "component": "Skills",
-            "path": "/skills",
-            "headerTitle": "Skills"
-        },
-        {
-            "component": "Resume",
-            "path": "/resume",
-            "headerTitle": "Resume"
-        },
-        {
-            "component": "Projects",
-            "path": "/projects",
-            "headerTitle": "Projects"
-        }
-    ]
-}
+[
+  {
+    "component": "About",
+    "path": "/about"
+  },
+  {
+    "component": "Skills",
+    "path": "/skills"
+  },
+  {
+    "component": "Resume",
+    "path": "/resume"
+  },
+  {
+    "component": "Projects",
+    "path": "/projects"
+  }
+]
