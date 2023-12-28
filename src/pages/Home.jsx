@@ -2,61 +2,82 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import Fade from 'react-reveal';
+import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import FallbackSpinner from '../components/FallbackSpinner';
 import Social from '../components/Social';
 import useEndpoint from '../components/useEndpoint';
 
+const WholescreenImage = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+`;
+
+const Name = styled.h1`
+  font-size: 5em;
+`;
+
+const InlineChild = styled.h2`
+  display: inline-block;
+`;
+
+const IntroTextContainer = styled(Col)`
+  margin: 10px;
+  flex-direction: column;
+  white-space: pre-wrap;
+  text-align: left;
+  font-size: 1.2em;
+  font-weight: 500;
+
+  @media (max-width: '576px') {
+    text-align: center;
+  }
+`;
+
+const IntroImageContainer = styled(Col)`
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  & img {
+    width: 30rem;
+    height: auto;
+  }
+`;
+
 const styles = {
-  nameStyle: {
-    fontSize: '5em',
-  },
-  inlineChild: {
-    display: 'inline-block',
-  },
   mainContainer: {
-    height: '100vh',
+    position: 'absolute',
+    top: '0rem',
+    width: '100vw',
+    height: '95vh',
     display: 'flex',
+    textAlign: 'center',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  introTextContainer: {
-    margin: 10,
-    flexDirection: 'column',
-    whiteSpace: 'pre-wrap',
-    textAlign: 'left',
-    fontSize: '1.2em',
-    fontWeight: 500,
-  },
-  introImageContainer: {
-    margin: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    display: 'flex',
   },
 };
 
 function Home() {
   const { data } = useEndpoint('home');
 
-  const parseIntro = (text) => (
-    <ReactMarkdown
-      children={text}
-    />
-  );
+  if (!data) return <FallbackSpinner />;
 
-  return data ? (
+  return (
     <Fade>
+      <WholescreenImage src={data.backgroundPic} alt="Background image" />
       <div style={styles.mainContainer}>
-        <h1 style={styles.nameStyle}>{data?.name}</h1>
-        <div style={{ flexDirection: 'row' }}>
-          <h2 style={styles.inlineChild}>I&apos;m&nbsp;</h2>
+        <Name>{data.name}</Name>
+        <div>
+          <InlineChild>I&apos;m&nbsp;</InlineChild>
           <Typewriter
             options={{
               loop: true,
               autoStart: true,
-              strings: data?.roles,
+              strings: data.roles,
             }}
           />
         </div>
@@ -65,19 +86,18 @@ function Home() {
 
       <div className="section-content-container">
         <Container>
-          <Row>
-            <Col style={styles.introTextContainer}>
-              {parseIntro(data.about)}
-            </Col>
-            <Col style={styles.introImageContainer}>
-              <img src={data?.imageSource} alt="profile" />
-            </Col>
+          <Row className="d-flex align-items-center mb-5">
+            <IntroImageContainer>
+              <img src={data.profilePic} alt="profile" />
+            </IntroImageContainer>
+            <IntroTextContainer>
+              <ReactMarkdown children={data.about} />
+            </IntroTextContainer>
           </Row>
         </Container>
       </div>
     </Fade>
-
-  ) : <FallbackSpinner />;
+  );
 }
 
 export default Home;
