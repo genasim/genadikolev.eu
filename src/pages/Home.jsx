@@ -1,8 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import Fade from 'react-reveal';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 import Typewriter from 'typewriter-effect';
 import FallbackSpinner from '../components/FallbackSpinner';
 import Social from '../components/Social';
@@ -22,6 +24,17 @@ const InlineChild = styled.h2`
   display: inline-block;
 `;
 
+const IntroContainer = styled(Container)`
+  display: flex;
+  align-items: center;
+  justify-content: evenly;
+  margin-bottom: 3rem;
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+  `}
+`;
+
 const IntroTextContainer = styled(Col)`
   margin: 10px;
   flex-direction: column;
@@ -30,21 +43,33 @@ const IntroTextContainer = styled(Col)`
   font-size: 1.2em;
   font-weight: 500;
 
-  @media (max-width: '576px') {
+  ${media.lessThan('medium')`
     text-align: center;
-  }
+  `}
 `;
 
 const IntroImageContainer = styled(Col)`
   margin: 10px;
   justify-content: center;
   align-items: center;
-  display: flex;
-
-  & img {
-    width: 30rem;
+  display: flex & img {
+    width: 20rem;
     height: auto;
   }
+
+  ${media.lessThan('small')`
+    & img {
+      width: 17rem;
+      height: auto;
+    }
+  `}
+
+  ${media.between('small', 'medium')`
+    & img {
+      width: 25rem;
+      height: auto;
+    }
+  `}
 `;
 
 const styles = {
@@ -85,16 +110,14 @@ function Home() {
       </div>
 
       <div className="section-content-container">
-        <Container>
-          <Row className="d-flex align-items-center mb-5">
-            <IntroImageContainer>
-              <img src={data.profilePic} alt="profile" />
-            </IntroImageContainer>
-            <IntroTextContainer>
-              <ReactMarkdown children={data.about} />
-            </IntroTextContainer>
-          </Row>
-        </Container>
+        <IntroContainer>
+          <IntroImageContainer>
+            <img src={data.profilePic} alt="profile" />
+          </IntroImageContainer>
+          <IntroTextContainer>
+            <ReactMarkdown children={data.about} />
+          </IntroTextContainer>
+        </IntroContainer>
       </div>
     </Fade>
   );

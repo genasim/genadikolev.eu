@@ -20,6 +20,7 @@
     "react-social-icons": "^5.6.1",
     "react-vertical-timeline-component": "^3.6.0",
     "styled-components": "^5.3.1",
+    "styled-media-query": "^2.1.2",
     "typewriter-effect": "^2.18.2",
     "use-dark-mode": "^2.3.1",
     "web-vitals": "^1.0.1"
