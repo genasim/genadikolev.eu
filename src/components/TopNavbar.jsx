@@ -23,7 +23,7 @@ const InternalNavLink = styled(NavLink)`
 
 const TopNavbar = () => {
   const theme = useContext(ThemeContext);
-  const { data } = useEndpoint('social');
+  const data = useEndpoint('social');
 
   return (
     <Navbar sticky="top" bg="dark" className="p-3">

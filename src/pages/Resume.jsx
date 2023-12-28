@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useContext } from 'react';
+import React from 'react';
 import { MdBusinessCenter } from 'react-icons/md';
 import { PiStudentFill } from 'react-icons/pi';
 import {
@@ -7,9 +7,9 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { ThemeContext } from 'styled-components';
 import FallbackSpinner from '../components/FallbackSpinner';
 import useEndpoint from '../components/useEndpoint';
+import useTheme from '../components/useTheme';
 import '../css/experience.css';
 
 const resolveCardType = (type, theme) => {
@@ -34,8 +34,8 @@ const resolveCardType = (type, theme) => {
 };
 
 function Resume() {
-  const theme = useContext(ThemeContext);
-  const { data } = useEndpoint('resume');
+  const theme = useTheme();
+  const data = useEndpoint('resume');
 
   if (!data) return <FallbackSpinner />;
 

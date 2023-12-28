@@ -1,19 +1,19 @@
 /* eslint-disable object-curly-newline */
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button, Container, Navbar } from 'react-bootstrap';
 import { FaHome, FaLaptopCode, FaRocket } from 'react-icons/fa';
 import { MdOutlineHistoryEdu } from 'react-icons/md';
 import { TbDownload } from 'react-icons/tb';
 import { withRouter } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import { ThemeContext } from 'styled-components';
 import pages from '../pages';
 import useEndpoint from './useEndpoint';
+import useTheme from './useTheme';
 
 const BottomNavbar = () => {
-  const theme = useContext(ThemeContext);
-  const { data } = useEndpoint('social');
+  const theme = useTheme();
+  const data = useEndpoint('social');
 
   return (
     <Navbar sticky="bottom" bg="dark" className="p-2">
@@ -71,7 +71,7 @@ const resolveIcon = (title) => {
 
 const IconButton = ({ page }) => {
   const Icon = resolveIcon(page.title);
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   return (
     <NavLink

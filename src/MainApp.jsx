@@ -9,7 +9,7 @@ import TopNavbarWithRouter from './components/TopNavbar';
 import useEndpoint from './components/useEndpoint';
 
 function MainApp() {
-  const { data } = useEndpoint('routes');
+  const data = useEndpoint('routes');
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     setIsMobile(window.innerWidth < 580);

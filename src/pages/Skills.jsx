@@ -17,45 +17,40 @@ const styles = {
   },
 };
 
-function Skills() {
-  const renderSkillsIntro = (intro) => (
-    <h4 style={styles.introTextContainer}>
-      <ReactMarkdown children={intro} />
-    </h4>
-  );
+const renderSkillsIntro = (intro) => (
+  <h4 style={styles.introTextContainer}>
+    <ReactMarkdown children={intro} />
+  </h4>
+);
 
-  const { data } = useEndpoint('skills');
+function Skills() {
+  const data = useEndpoint('skills');
+  if (!data) return <FallbackSpinner />;
 
   return (
-    <>
-      {data ? (
-        <Fade>
-          <div className="section-content-container">
-            <Container>
-              {renderSkillsIntro(data.intro)}
-              {data.skills?.map((rows) => (
-                <div key={rows.title}>
-                  <br />
-                  <h3>{rows.title}</h3>
-                  {rows.items.map((item) => (
-                    <div key={item.title} style={{ display: 'inline-block' }}>
-                      <img
-                        style={styles.iconStyle}
-                        src={item.icon}
-                        alt={item.title}
-                      />
-                      <p>{item.title}</p>
-                    </div>
-                  ))}
+    <Fade>
+      <div className="section-content-container">
+        <Container>
+          {renderSkillsIntro(data.intro)}
+          {data.skills?.map((rows) => (
+            <div key={rows.title}>
+              <br />
+              <h3>{rows.title}</h3>
+              {rows.items.map((item) => (
+                <div key={item.title} style={{ display: 'inline-block' }}>
+                  <img
+                    style={styles.iconStyle}
+                    src={item.icon}
+                    alt={item.title}
+                  />
+                  <p>{item.title}</p>
                 </div>
               ))}
-            </Container>
-          </div>
-        </Fade>
-      ) : (
-        <FallbackSpinner />
-      )}
-    </>
+            </div>
+          ))}
+        </Container>
+      </div>
+    </Fade>
   );
 }
 

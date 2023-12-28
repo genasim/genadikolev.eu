@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
-import {
-  Button, Card, Badge, Col,
-} from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
+import {
+  Badge,
+  Button, Card,
+  Col,
+} from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
+import useTheme from './useTheme';
 
 const styles = {
   badgeStyle: {
@@ -34,7 +36,7 @@ const styles = {
 };
 
 const ProjectCard = (props) => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const parseBodyText = (text) => <ReactMarkdown children={text} />;
 
   const { project } = props;

@@ -13,7 +13,7 @@ const useEndpoint = (endpoint) => {
       .catch((err) => err);
   }, []);
 
-  return { data };
+  return data;
 };
 
 export default useEndpoint;

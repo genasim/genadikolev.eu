@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SocialIcon } from 'react-social-icons';
-import { ThemeContext } from 'styled-components';
 import endpoints from '../constants/endpoints';
+import useTheme from './useTheme';
 
 const styles = {
   iconStyle: {
@@ -12,7 +12,7 @@ const styles = {
 };
 
 function Social() {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const [data, setData] = useState(null);
 
   useEffect(() => {

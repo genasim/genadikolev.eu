@@ -87,7 +87,7 @@ const styles = {
 };
 
 function Home() {
-  const { data } = useEndpoint('home');
+  const data = useEndpoint('home');
 
   if (!data) return <FallbackSpinner />;
 
