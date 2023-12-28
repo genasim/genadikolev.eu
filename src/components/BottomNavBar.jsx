@@ -13,7 +13,7 @@ import useTheme from './useTheme';
 
 const BottomNavbar = () => {
   const theme = useTheme();
-  const data = useEndpoint('social');
+  const data = useEndpoint('home');
 
   return (
     <Navbar sticky="bottom" bg="dark" className="p-2">

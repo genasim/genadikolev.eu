@@ -106,7 +106,7 @@ function Home() {
             }}
           />
         </div>
-        <Social />
+        <Social socials={data.socials} />
       </div>
 
       <div className="section-content-container">

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { SocialIcon } from 'react-social-icons';
-import endpoints from '../constants/endpoints';
 import useTheme from './useTheme';
 
 const styles = {
@@ -11,22 +11,12 @@ const styles = {
   },
 };
 
-function Social() {
+function Social({ socials }) {
   const theme = useTheme();
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch(endpoints.social, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
 
   return (
     <div className="social">
-      {data ? data.social.map((social) => (
+      {socials.map((social) => (
         <SocialIcon
           key={social.network}
           style={styles.iconStyle}
@@ -36,9 +26,18 @@ function Social() {
           target="_blank"
           rel="noopener"
         />
-      )) : null}
+      ))}
     </div>
   );
 }
 
 export default Social;
+
+Social.propTypes = {
+  socials: PropTypes.arrayOf(
+    PropTypes.shape({
+      network: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
