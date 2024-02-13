@@ -7,13 +7,14 @@ import ResumePage from './Resume'
 interface Page {
   component: React.FC
   path: string
+  title: string
 }
 
 const pages: Page[] = [
-  { component: HomePage, path: '/' },
-  { component: SkillsPage, path: '/skills' },
-  { component: ProjectsPage, path: '/projects' },
-  { component: ResumePage, path: '/resume' },
+  { component: HomePage, path: '/', title: 'Home' },
+  { component: SkillsPage, path: '/skills', title: 'Skills' },
+  { component: ProjectsPage, path: '/projects', title: 'Projects' },
+  { component: ResumePage, path: '/resume', title: 'Resume' },
 ]
 
 export default pages

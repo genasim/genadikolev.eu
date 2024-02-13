@@ -11,10 +11,10 @@ import './scss/index.scss'
 
 function App() {
   return (
-    <div className='bg-dark text-white'>
+    <div className="bg-dark text-white">
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Router>
+        <Router>
+          <Layout>
             <Routes>
               {pages.map(page => (
                 <Route
@@ -24,8 +24,8 @@ function App() {
                 />
               ))}
             </Routes>
-          </Router>
-        </Layout>
+          </Layout>
+        </Router>
       </ThemeProvider>
     </div>
   )

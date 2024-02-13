@@ -8,5 +8,5 @@
     "arrowParens": "avoid",
     "jsxSingleQuote": false,
     "bracketSpacing": true,
-    "printWidth": 50
+    "printWidth": 70
 }
