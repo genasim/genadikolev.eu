@@ -1,2 +1,28 @@
-/* The following line can be included in a src/App.scss */
+$primary: #c1620a;
+$secondary: #544932;
+$success: #539f05;
+$info: #109737;
+$warning: #ffbd53;
+$danger: #ef0261;
+$light: #e5e4db;
+$dark: #1f1f1f;
+$white: #fff;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark,
+  "white":      $white,
+);
+
+:root {
+    background: $dark;
+}
+
+/* Import bootstrap */
 @import 'bootstrap/scss/bootstrap';
