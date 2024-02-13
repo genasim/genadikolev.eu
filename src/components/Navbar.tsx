@@ -117,7 +117,7 @@ const TopNavbar: React.FC<TopNavbarProps> = ({ cvUrl }) => {
       <ResponsiveSideNavbarToggle
         fixed="top"
         bg="transparent"
-        className='my-3'
+        className="my-3"
       >
         <StyledTbMenu
           size={30}
@@ -152,15 +152,15 @@ const TopNavbar: React.FC<TopNavbarProps> = ({ cvUrl }) => {
           ))}
           <IconButton
             variant="primary"
-            iconColor='white'
+            iconColor="white"
             title="CV"
           >
             <NavLink
-                className="text-decoration-none"
-                to={cvUrl ?? ''}
-              >
-                CV
-              </NavLink>
+              className="text-decoration-none"
+              to={cvUrl ?? ''}
+            >
+              CV
+            </NavLink>
           </IconButton>
         </Offcanvas.Body>
       </Offcanvas>

@@ -7,10 +7,7 @@ interface SocialProps {
   href?: string
 }
 
-const Social: React.FC<SocialProps> = ({
-  network,
-  href,
-}) => {
+const Social: React.FC<SocialProps> = ({ network, href }) => {
   const theme = useTheme()
 
   return (

@@ -1,10 +1,9 @@
 import React, { ReactNode } from 'react'
-import { FaHome, FaLaptopCode, FaRocket } from 'react-icons/fa'
-import { TbDownload } from 'react-icons/tb'
-import { MdOutlineHistoryEdu } from 'react-icons/md'
-import { Link } from 'react-router-dom'
-import { useTheme } from 'styled-components'
 import { Button } from 'react-bootstrap'
+import { FaHome, FaLaptopCode, FaRocket } from 'react-icons/fa'
+import { MdOutlineHistoryEdu } from 'react-icons/md'
+import { TbDownload } from 'react-icons/tb'
+import { useTheme } from 'styled-components'
 
 interface IconButtonProps {
   className?: string

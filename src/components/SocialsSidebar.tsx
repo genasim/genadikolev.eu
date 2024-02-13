@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Social from './Social';
+import styled from 'styled-components'
+import Social from './Social'
 
 const StyledSidebar = styled.div`
   position: fixed;
@@ -13,7 +13,7 @@ const StyledSidebar = styled.div`
   justify-content: center;
   background-color: transparent;
   z-index: 10; // Make sure the sidebar floats above other content
-`;
+`
 
 const VerticalLine = styled.div`
   position: absolute;
@@ -29,38 +29,42 @@ const VerticalLine = styled.div`
     left: -50%;
     width: 1px; // Match the width of the vertical line
     height: 15rem; // Height of the gaps
-    background: ${props => props.theme.background}; // Make the gaps transparent
+    background: ${props =>
+      props.theme.background}; // Make the gaps transparent
   }
   &:before {
-    top: calc(50% - 60px); // Adjust this value to position the gap above the social links
+    top: calc(
+      50% - 60px
+    ); // Adjust this value to position the gap above the social links
   }
   &:after {
-    bottom: calc(50% - 60px); // Adjust this value to position the gap below the social links
+    bottom: calc(
+      50% - 60px
+    ); // Adjust this value to position the gap below the social links
   }
-`;
+`
 
 const SocialLinks = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: 
-  & > * {
+  background: & > * {
     color: ${props => props.theme.primary};
     margin: 800px;
   }
-`;
+`
 
 const Sidebar = () => {
   return (
     <StyledSidebar>
       <VerticalLine />
       <SocialLinks>
-        <Social network='instagram'/>
-        <Social network='github'/>
-        <Social network='linkedin'/>
+        <Social network="instagram" />
+        <Social network="github" />
+        <Social network="linkedin" />
       </SocialLinks>
     </StyledSidebar>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

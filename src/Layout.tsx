@@ -1,14 +1,12 @@
 import { ReactNode } from 'react'
-import SocialsSidebar from './components/SocialsSidebar'
 import Navbar from './components/Navbar'
+import SocialsSidebar from './components/SocialsSidebar'
 
 interface LayoutProps {
   children: ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({
-  children,
-}) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Navbar />
