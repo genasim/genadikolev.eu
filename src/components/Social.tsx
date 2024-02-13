@@ -12,7 +12,7 @@ const Social: React.FC<SocialProps> = ({ network, href }) => {
 
   return (
     <SocialIcon
-      className="my-3"
+      className="my-4"
       url={href}
       network={network}
       bgColor={theme.secondary}
