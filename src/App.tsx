@@ -1,4 +1,4 @@
-import './App.scss'
+import './scss/index.scss'
 import {
   BrowserRouter as Router,
   Route,
