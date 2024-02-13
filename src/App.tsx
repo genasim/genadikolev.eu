@@ -1,28 +1,32 @@
-import './scss/index.scss'
 import {
-  BrowserRouter as Router,
   Route,
+  BrowserRouter as Router,
   Routes,
 } from 'react-router-dom'
-import pages from './pages'
+import { ThemeProvider } from 'styled-components'
 import Layout from './Layout'
+import pages from './pages'
+import theme from './scss/_variables.module.scss'
+import './scss/index.scss'
 
 function App() {
   return (
     <div className="bg-dark">
-      <Layout>
-        <Router>
-          <Routes>
-            {pages.map(page => (
-              <Route
-                key={page.path}
-                path={page.path}
-                Component={page.component}
-              />
-            ))}
-          </Routes>
-        </Router>
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Router>
+            <Routes>
+              {pages.map(page => (
+                <Route
+                  key={page.path}
+                  path={page.path}
+                  Component={page.component}
+                />
+              ))}
+            </Routes>
+          </Router>
+        </Layout>
+      </ThemeProvider>
     </div>
   )
 }
