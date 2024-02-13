@@ -1,10 +1,25 @@
 import './App.scss'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom'
+import pages from './pages'
 
 function App() {
-
   return (
-    <div className='bg-dark' style={{ minHeight: '100vh' }}>
-      <h2 className='text-primary'>Some text</h2>
+    <div className="bg-dark">
+      <Router>
+        <Routes>
+          {pages.map(page => (
+            <Route
+              key={page.path}
+              path={page.path}
+              Component={page.component}
+            />
+          ))}
+        </Routes>
+      </Router>
     </div>
   )
 }
