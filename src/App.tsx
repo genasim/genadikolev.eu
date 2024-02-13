@@ -5,21 +5,24 @@ import {
   Routes,
 } from 'react-router-dom'
 import pages from './pages'
+import Layout from './Layout'
 
 function App() {
   return (
     <div className="bg-dark">
-      <Router>
-        <Routes>
-          {pages.map(page => (
-            <Route
-              key={page.path}
-              path={page.path}
-              Component={page.component}
-            />
-          ))}
-        </Routes>
-      </Router>
+      <Layout>
+        <Router>
+          <Routes>
+            {pages.map(page => (
+              <Route
+                key={page.path}
+                path={page.path}
+                Component={page.component}
+              />
+            ))}
+          </Routes>
+        </Router>
+      </Layout>
     </div>
   )
 }
