@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import Sidebar from './components/Sidebar'
+import SocialsSidebar from './components/SocialsSidebar'
 import Navbar from './components/Navbar'
 
 interface LayoutProps {
@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({
   return (
     <>
       <Navbar />
-      <Sidebar />
+      <SocialsSidebar />
       {children}
     </>
   )
