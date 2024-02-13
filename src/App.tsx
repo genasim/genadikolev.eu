@@ -11,7 +11,7 @@ import './scss/index.scss'
 
 function App() {
   return (
-    <div className="bg-dark">
+    <div className='bg-dark text-white'>
       <ThemeProvider theme={theme}>
         <Layout>
           <Router>
