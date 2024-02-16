@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 import Navbar from './components/Navbar'
 import SocialsSidebar from './components/SocialsSidebar'
-import { ImageUrlContext } from './hooks/useSetImageUrlContext'
+import { ImageUrlContext } from './hooks/useSetScreenImg'
 import FallbackSpinner from './components/FallbackSpinner'
 import useEndpoint from './hooks/useEndpoint'
 

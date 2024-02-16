@@ -4,9 +4,9 @@ interface ImageContext {
   setImageUrl: (url: string) => void
 }
 
-export const ImageUrlContext = createContext<ImageContext | undefined>(
-  undefined,
-)
+export const ImageUrlContext = createContext<
+  ImageContext | undefined
+>(undefined)
 
 export default (url: string) => {
   const context = useContext(ImageUrlContext)
@@ -16,6 +16,6 @@ export default (url: string) => {
     )
 
   useEffect(() => {
-    context.setImageUrl(`images/backgronds/${url}`)
-  }, [context.setImageUrl])
+    context.setImageUrl(`${url}`)
+  }, [])
 }
