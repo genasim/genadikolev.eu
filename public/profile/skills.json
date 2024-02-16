@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Languages & Databases",
+    "skills": [
+      {
+        "title": "Java",
+        "progress": 50
+      },
+      {
+        "title": "PHP",
+        "progress": 50
+      },
+      {
+        "title": "JavaScript",
+        "progress": 50
+      },
+      {
+        "title": "Python",
+        "progress": 50
+      },
+      {
+        "title": "MySQL",
+        "progress": 50
+      }
+    ]
+  },
+  {
+    "title": "Frameworks & Technologies",
+    "skills": [
+    
+    ]
+  },
+  {
+    "title": "Tools & Platforms",
+    "skills": [
+
+    ]
+  }
+]

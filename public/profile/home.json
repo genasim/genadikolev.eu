@@ -1,0 +1,26 @@
+{
+    "name": "Genadi Kolev",
+    "roles": [
+        "a Developer", 
+        "a Freelancer"
+    ],
+    "about": "Hello there, name's Genadi Kolev, full-stack developer. Young, aspiring and dedicated, I am comfortable working on Web, Mobile and back-end. Feel free to explore my portfolio and connect with me to discuss potential collaborations or opportunities. Let's create something remarkable together!",
+    "profilePic": "images/about/portrait.png",
+    "backgroundPic": "images/background.jpg",
+    "cv": "https://drive.google.com/file/d/17Bnx2NLQoM5Pd8LlOyCJU1zxy1_03qX6/view?usp=sharing",
+    "socials": [
+        {
+            "network" : "linkedin",
+            "href": "https://linkedin.com/"
+        },
+        {
+            "network" : "github",
+            "href": "https://github.com/mayankagarwal09"
+        },
+        {
+            "network" : "email",
+            "href": "mailto:test@test.com"
+        }
+    ]
+
+}

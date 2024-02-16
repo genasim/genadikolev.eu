@@ -1,0 +1,18 @@
+[
+  {
+    "component": "Home",
+    "path": "/"
+  },
+  {
+    "component": "Skills",
+    "path": "/skills"
+  },
+  {
+    "component": "Resume",
+    "path": "/resume"
+  },
+  {
+    "component": "Projects",
+    "path": "/projects"
+  }
+]
