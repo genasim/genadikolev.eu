@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-export default (endpoint: string) => {
-  const [data, setData] = useState(null)
+export default <T>(endpoint: string) => {
+  const [data, setData] = useState<T | null>(null)
 
   useEffect(() => {
     fetch(`profile/${endpoint}.json`, {
