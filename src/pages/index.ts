@@ -15,6 +15,6 @@ const pages: Page[] = [
   { component: SkillsPage, path: '/skills', title: 'Skills' },
   { component: ProjectsPage, path: '/projects', title: 'Projects' },
   { component: ResumePage, path: '/resume', title: 'Resume' },
-]
+] as const
 
 export default pages

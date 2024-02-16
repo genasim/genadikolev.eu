@@ -1,4 +1,10 @@
-import { ReactNode } from 'react'
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Navbar from './components/Navbar'
@@ -8,7 +14,15 @@ interface LayoutProps {
   children: ReactNode
 }
 
+const WholescreenImage = styled.img`
+  position: absolute;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+`
+
 const PageContainer = styled.div`
+  position: relative;
   padding: 6rem 8rem;
 
   ${media.lessThan('medium')`
@@ -20,16 +34,44 @@ const PageContainer = styled.div`
   `}
 `
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+interface ImageContext {
+  setImageUrl: (url: string) => void
+}
+
+const ImageUrlContext = createContext<ImageContext | undefined>(
+  undefined,
+)
+
+export const useSetImageUrlContext = (url: string) => {
+  const context = useContext(ImageUrlContext)
+  if (context === undefined)
+    throw new Error(
+      'useSetImageUrlContext must be within an ScreenImageLayout',
+    )
+
+  useEffect(() => {
+    context.setImageUrl(url)
+  }, [context.setImageUrl])
+}
+
+const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
+  const [imageUrl, setImageUrl] = useState<string>('')
+
   return (
-    <>
+    <ImageUrlContext.Provider value={{ setImageUrl }}>
+      <WholescreenImage
+        src={imageUrl}
+        alt="Background image"
+      />
       <Navbar />
       <SocialsSidebar />
       <PageContainer>
-        {children}
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          {children}
+        </div>
       </PageContainer>
-    </>
+    </ImageUrlContext.Provider>
   )
 }
 
-export default Layout
+export default ScreenImageLayout
