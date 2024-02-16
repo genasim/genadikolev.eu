@@ -125,12 +125,13 @@ const SocialsSidebar: React.FC<SocialsSidebarProps> = ({
         <Offcanvas.Header closeButton />
         <Offcanvas.Body className="mt-2 d-flex flex-column">
           <SocialLinks>
-            <Social network="instagram" />
-            <Social
-              network="github"
-              href="https://github.com/genasim"
-            />
-            <Social network="linkedin" />
+            {socials?.map(social => (
+              <Social
+                key={social.href}
+                href={social.href}
+                network={social.network}
+              />
+            ))}
           </SocialLinks>
         </Offcanvas.Body>
       </Offcanvas>
