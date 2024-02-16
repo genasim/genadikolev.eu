@@ -1,14 +1,9 @@
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Navbar from './components/Navbar'
 import SocialsSidebar from './components/SocialsSidebar'
+import { ImageUrlContext } from './hooks/useSetImageUrlContext'
 
 interface LayoutProps {
   children: ReactNode
@@ -33,26 +28,6 @@ const PageContainer = styled.div`
     padding: 6rem 1rem;
   `}
 `
-
-interface ImageContext {
-  setImageUrl: (url: string) => void
-}
-
-const ImageUrlContext = createContext<ImageContext | undefined>(
-  undefined,
-)
-
-export const useSetImageUrlContext = (url: string) => {
-  const context = useContext(ImageUrlContext)
-  if (context === undefined)
-    throw new Error(
-      'useSetImageUrlContext must be within an ScreenImageLayout',
-    )
-
-  useEffect(() => {
-    context.setImageUrl(url)
-  }, [context.setImageUrl])
-}
 
 const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
   const [imageUrl, setImageUrl] = useState<string>('')
