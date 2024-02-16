@@ -4,6 +4,8 @@ import media from 'styled-media-query'
 import Navbar from './components/Navbar'
 import SocialsSidebar from './components/SocialsSidebar'
 import { ImageUrlContext } from './hooks/useSetImageUrlContext'
+import FallbackSpinner from './components/FallbackSpinner'
+import useEndpoint from './hooks/useEndpoint'
 
 interface LayoutProps {
   children: ReactNode
@@ -29,8 +31,17 @@ const PageContainer = styled.div`
   `}
 `
 
+interface GlobalsModel {
+  cv: string
+  socials: { href: string; network: string }[]
+}
+
 const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
   const [imageUrl, setImageUrl] = useState<string>('')
+
+  const data = useEndpoint<GlobalsModel>('globals')
+
+  if (!data) return <FallbackSpinner />
 
   return (
     <ImageUrlContext.Provider value={{ setImageUrl }}>
@@ -38,8 +49,8 @@ const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
         src={imageUrl}
         alt="Background image"
       />
-      <Navbar />
-      <SocialsSidebar />
+      <Navbar cvUrl={data.cv} />
+      <SocialsSidebar socials={data.socials}/>
       <PageContainer>
         <div className="d-flex flex-column justify-content-center align-items-center">
           {children}

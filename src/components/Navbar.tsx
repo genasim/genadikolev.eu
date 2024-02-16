@@ -3,7 +3,7 @@ import {
   Button,
   Container,
   Nav,
-  Navbar,
+  Navbar as Navbar_BS,
   Offcanvas,
 } from 'react-bootstrap'
 import { TbDownload, TbMenu } from 'react-icons/tb'
@@ -60,23 +60,24 @@ const StyledTbMenu = styled(TbMenu)`
   `}
 `
 
-const ResponsiveTopNavbar = styled(Navbar)`
+const ResponsiveTopNavbar = styled(Navbar_BS)`
   ${media.lessThan('medium')`
     display: none;
   `}
 `
 
-const ResponsiveSideNavbarToggle = styled(Navbar)`
+const ResponsiveSideNavbarToggle = styled(Navbar_BS)`
   ${media.lessThan('medium')`
     display: block;
   `}
 `
 
-interface TopNavbarProps {
+interface NavbarProps {
   cvUrl?: string
 }
 
-const TopNavbar: React.FC<TopNavbarProps> = ({ cvUrl }) => {
+
+const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
   const location = useLocation()
   const [showSidebar, setShowSidebar] = useState(false)
 
@@ -168,4 +169,4 @@ const TopNavbar: React.FC<TopNavbarProps> = ({ cvUrl }) => {
   )
 }
 
-export default TopNavbar
+export default Navbar
