@@ -39,9 +39,9 @@ interface GlobalsModel {
 const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
   const [imageUrl, setImageUrl] = useState<string>('')
 
-  const data = useEndpoint<GlobalsModel>('globals')
+  const { data, isLoading } = useEndpoint<GlobalsModel>('globals')
 
-  if (!data) return <FallbackSpinner />
+  if (isLoading) return <FallbackSpinner />
 
   return (
     <ImageUrlContext.Provider value={{ setImageUrl }}>
@@ -49,8 +49,8 @@ const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
         src={imageUrl}
         alt="Background image"
       />
-      <Navbar cvUrl={data.cv} />
-      <SocialsSidebar socials={data.socials}/>
+      <Navbar cvUrl={data?.cv} />
+      <SocialsSidebar socials={data?.socials}/>
       <PageContainer>
         <div className="d-flex flex-column justify-content-center align-items-center">
           {children}

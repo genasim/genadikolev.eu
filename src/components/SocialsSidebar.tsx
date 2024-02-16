@@ -77,7 +77,7 @@ const StyledTbMenu = styled(TbMenu)`
 `
 
 interface SocialsSidebarProps {
-  socials: { href: string; network: string }[]
+  socials?: { href: string; network: string }[]
 }
 
 const SocialsSidebar: React.FC<SocialsSidebarProps> = ({
@@ -91,7 +91,7 @@ const SocialsSidebar: React.FC<SocialsSidebarProps> = ({
       <StyledSidebar>
         <VerticalLine />
         <SocialLinks>
-          {socials.map(social => (
+          {socials?.map(social => (
             <Social
               key={social.href}
               href={social.href}
