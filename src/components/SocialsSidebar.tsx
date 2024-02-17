@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Navbar, Offcanvas } from 'react-bootstrap'
 import { TbMenu } from 'react-icons/tb'
 import styled from 'styled-components'
@@ -76,7 +76,13 @@ const StyledTbMenu = styled(TbMenu)`
   `}
 `
 
-const Sidebar = () => {
+interface SocialsSidebarProps {
+  socials?: { href: string; network: string }[]
+}
+
+const SocialsSidebar: React.FC<SocialsSidebarProps> = ({
+  socials,
+}) => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const handleToggleSidebar = () => setShowSidebar(!showSidebar)
 
@@ -85,12 +91,13 @@ const Sidebar = () => {
       <StyledSidebar>
         <VerticalLine />
         <SocialLinks>
-          <Social network="instagram" />
-          <Social
-            network="github"
-            href="https://github.com/genasim"
-          />
-          <Social network="linkedin" />
+          {socials?.map(social => (
+            <Social
+              key={social.href}
+              href={social.href}
+              network={social.network}
+            />
+          ))}
         </SocialLinks>
       </StyledSidebar>
 
@@ -118,12 +125,13 @@ const Sidebar = () => {
         <Offcanvas.Header closeButton />
         <Offcanvas.Body className="mt-2 d-flex flex-column">
           <SocialLinks>
-            <Social network="instagram" />
-            <Social
-              network="github"
-              href="https://github.com/genasim"
-            />
-            <Social network="linkedin" />
+            {socials?.map(social => (
+              <Social
+                key={social.href}
+                href={social.href}
+                network={social.network}
+              />
+            ))}
           </SocialLinks>
         </Offcanvas.Body>
       </Offcanvas>
@@ -131,4 +139,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default SocialsSidebar

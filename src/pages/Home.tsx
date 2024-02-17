@@ -1,7 +1,7 @@
-import { useSetImageUrlContext } from "../Layout"
+import useSetScreenImg from '../hooks/useSetScreenImg'
 
 const HomePage = () => {
-  useSetImageUrlContext('home')
+  useSetScreenImg('home.jpeg')
 
   return (
     <>

@@ -1,14 +1,11 @@
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Navbar from './components/Navbar'
 import SocialsSidebar from './components/SocialsSidebar'
+import { ImageUrlContext } from './hooks/useSetScreenImg'
+import FallbackSpinner from './components/FallbackSpinner'
+import useEndpoint from './hooks/useEndpoint'
 
 interface LayoutProps {
   children: ReactNode
@@ -34,28 +31,17 @@ const PageContainer = styled.div`
   `}
 `
 
-interface ImageContext {
-  setImageUrl: (url: string) => void
-}
-
-const ImageUrlContext = createContext<ImageContext | undefined>(
-  undefined,
-)
-
-export const useSetImageUrlContext = (url: string) => {
-  const context = useContext(ImageUrlContext)
-  if (context === undefined)
-    throw new Error(
-      'useSetImageUrlContext must be within an ScreenImageLayout',
-    )
-
-  useEffect(() => {
-    context.setImageUrl(url)
-  }, [context.setImageUrl])
+interface GlobalsModel {
+  cv: string
+  socials: { href: string; network: string }[]
 }
 
 const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
   const [imageUrl, setImageUrl] = useState<string>('')
+
+  const { data, isLoading } = useEndpoint<GlobalsModel>('globals')
+
+  if (isLoading) return <FallbackSpinner />
 
   return (
     <ImageUrlContext.Provider value={{ setImageUrl }}>
@@ -63,8 +49,8 @@ const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
         src={imageUrl}
         alt="Background image"
       />
-      <Navbar />
-      <SocialsSidebar />
+      <Navbar cvUrl={data?.cv} />
+      <SocialsSidebar socials={data?.socials}/>
       <PageContainer>
         <div className="d-flex flex-column justify-content-center align-items-center">
           {children}
