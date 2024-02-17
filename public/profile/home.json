@@ -1,8 +1,6 @@
 {
-    "name": "Genadi Kolev",
     "roles": [
-        "a Developer", 
-        "a Freelancer"
-    ],
-    "about": "Hello there, name's Genadi Kolev, full-stack developer. Young, aspiring and dedicated, I am comfortable working on Web, Mobile and back-end. Feel free to explore my portfolio and connect with me to discuss potential collaborations or opportunities. Let's create something remarkable together!"
+        "a Developer.", 
+        "a Freelancer."
+    ]
 }

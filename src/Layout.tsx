@@ -1,11 +1,10 @@
 import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
-import media from 'styled-media-query'
+import FallbackSpinner from './components/FallbackSpinner'
 import Navbar from './components/Navbar'
 import SocialsSidebar from './components/SocialsSidebar'
-import { ImageUrlContext } from './hooks/useSetScreenImg'
-import FallbackSpinner from './components/FallbackSpinner'
 import useEndpoint from './hooks/useEndpoint'
+import { ImageUrlContext } from './hooks/useSetScreenImg'
 
 interface LayoutProps {
   children: ReactNode
@@ -20,15 +19,7 @@ const WholescreenImage = styled.img`
 
 const PageContainer = styled.div`
   position: relative;
-  padding: 6rem 8rem;
-
-  ${media.lessThan('medium')`
-    padding: 6rem 2rem;
-  `}
-
-  ${media.lessThan('small')`
-    padding: 6rem 1rem;
-  `}
+  padding: 6rem 9vw;
 `
 
 interface GlobalsModel {
@@ -50,12 +41,8 @@ const ScreenImageLayout: React.FC<LayoutProps> = ({ children }) => {
         alt="Background image"
       />
       <Navbar cvUrl={data?.cv} />
-      <SocialsSidebar socials={data?.socials}/>
-      <PageContainer>
-        <div className="d-flex flex-column justify-content-center align-items-center">
-          {children}
-        </div>
-      </PageContainer>
+      <SocialsSidebar socials={data?.socials} />
+      <PageContainer>{children}</PageContainer>
     </ImageUrlContext.Provider>
   )
 }
