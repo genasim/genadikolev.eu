@@ -1,0 +1,18 @@
+services:
+  wui:
+    env_file:
+      - ./.env
+    image: ${WUI_CONTAINER_IMAGE}
+    ports:
+      - ${WUI_PORT}:5137
+    build:
+      args:
+        - UID=${UID}
+        - GID=${GID}
+        - APPUSR=${APPUSR}
+        - APPGRP=${APPGRP}
+        - HOME_DIR=${HOME_DIR}
+      context: ../..
+      dockerfile: ./utils/docker/Dockerfile
+    volumes:
+      - ${PROJECT_DIR}:${HOME_PROJECT_DIR}
