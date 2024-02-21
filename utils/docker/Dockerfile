@@ -49,11 +49,4 @@ RUN echo "export PS1='\$(date +\"%F %T\") \u@\h  \w \n  '" >> ${HOME_PROJECT_DIR
 USER ${APPUSR}
 WORKDIR ${HOME_PROJECT_DIR}
 
-CMD [ "sleep", "infinity" ]
-
-# RUN pwd
-
-# RUN bun install
-
-# CMD ["bun", "run", "dev"]
 
