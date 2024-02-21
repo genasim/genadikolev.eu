@@ -30,7 +30,7 @@ RUN set -x ; \
      --gid ${GID} \
      --non-unique \
      --shell "/bin/bash" \
-     --home-dir "/home/${APPUSR}" \
+     --home-dir "${HOME_DIR}" \
      --uid ${UID} \
      --groups ${APPGRP} ${APPUSR} && exit 0 ; exit 1
 
@@ -40,13 +40,12 @@ RUN mkdir -p "${HOME_DIR}" && chown ${APPUSR}:${APPGRP} "${HOME_DIR}"
 RUN echo "${APPUSR} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN echo "${APPGRP} ALL=(ALL) NOPASSWD: /usr/bin/npm" >> /etc/sudoers
 
-RUN echo "export PS1='\$(date +\"%F %T\") \u@\h  \w \n  '" >> ${HOME_PROJECT_DIR}/.bashrc && \
+RUN echo "export PS1='\$(date +\"%F %T\") \u@\h  \w \n '" >> ${HOME_DIR}/.bashrc && \
   echo "cd ${HOME_PROJECT_DIR}" >> ${HOME_DIR}/.bashrc && \
-  chown -R ${APPUSR}:${APPGRP} ${HOME_DIR}/ && \
+  chown -R ${APPUSR}:${APPGRP} ${HOME_DIR} && \
   chmod -R 0775 ${HOME_DIR}
 
 
 USER ${APPUSR}
-WORKDIR ${HOME_PROJECT_DIR}
 
 
