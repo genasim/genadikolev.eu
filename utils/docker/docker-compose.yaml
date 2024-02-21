@@ -1,7 +1,7 @@
 services:
   wui:
     env_file:
-      - ./.env
+      - ./.conf
     image: ${WUI_CONTAINER_IMAGE}
     ports:
       - ${WUI_PORT}:5173  # Default Vite port

@@ -1,4 +1,4 @@
-include $(wildcard ./utils/docker/.env)
+include $(wildcard ./utils/docker/.conf)
 export
 include $(wildcard ./utils/make/*.func.mk)
 
