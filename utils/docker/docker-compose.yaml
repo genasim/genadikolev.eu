@@ -3,6 +3,7 @@ services:
     env_file:
       - ./.conf
     image: ${WUI_CONTAINER_IMAGE}
+    container_name: ${WUI_CONTAINER_NAME}
     ports:
       - ${WUI_PORT}:5173  # Default Vite port
     build:
@@ -12,6 +13,7 @@ services:
         - APPUSR=${APPUSR}
         - APPGRP=${APPGRP}
         - HOME_DIR=${HOME_DIR}
+        - HOME_PROJECT_DIR=${HOME_PROJECT_DIR}
       context: ../..
       dockerfile: ./utils/docker/Dockerfile
     volumes:

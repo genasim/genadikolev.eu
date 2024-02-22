@@ -5,6 +5,7 @@ ARG GID
 ARG APPUSR
 ARG APPGRP
 ARG HOME_DIR
+ARG HOME_PROJECT_DIR
 
 RUN apk update && \
     apk upgrade && \
