@@ -1,6 +1,8 @@
 include $(wildcard ./utils/docker/.conf)
 export
+
 include $(wildcard ./utils/make/*.func.mk)
+include $(wildcard ./utils/lib/make/*.func.mk)
 
 DOCKER_COMPOSE_FILE_ALL := utils/docker/docker-compose.yaml
 DOCKER_COMPOSE_CMD := $(shell [ $$(uname -s) != "Linux" ] && echo "docker compose" || echo "docker-compose")

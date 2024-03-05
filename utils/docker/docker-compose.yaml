@@ -7,13 +7,6 @@ services:
     ports:
       - ${WUI_PORT}:5173  # Default Vite port
     build:
-      args:
-        - UID=${UID}
-        - GID=${GID}
-        - APPUSR=${APPUSR}
-        - APPGRP=${APPGRP}
-        - HOME_DIR=${HOME_DIR}
-        - HOME_PROJECT_DIR=${HOME_PROJECT_DIR}
       context: ../..
       dockerfile: ./utils/docker/Dockerfile
     volumes:
