@@ -9,6 +9,14 @@ ARG HOME_DIR
 ARG HOME_ORG_DIR
 ARG HOME_PROJECT_DIR
 
+ENV UID=${UID}
+ENV GID=${GID}
+ENV APPUSR=${APPUSR}
+ENV APPGRP=${APPGRP}
+ENV HOME_DIR=${HOME_DIR}
+ENV HOME_ORG_DIR=${HOME_ORG_DIR}
+ENV HOME_PROJECT_DIR=${HOME_PROJECT_DIR}
+
 RUN apk update && \
     apk upgrade && \
     apk add bash binutils git nano jq wget openssh-client \
