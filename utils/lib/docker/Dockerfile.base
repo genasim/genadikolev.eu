@@ -1,0 +1,50 @@
+# Alpine Docker image with glibc, since Alpine uses musl
+FROM cosmomill/alpine-glibc
+
+ARG UID
+ARG GID
+ARG APPUSR
+ARG APPGRP
+ARG HOME_DIR
+ARG HOME_ORG_DIR
+ARG HOME_PROJECT_DIR
+
+ENV UID=${UID}
+ENV GID=${GID}
+ENV APPUSR=${APPUSR}
+ENV APPGRP=${APPGRP}
+ENV HOME_DIR=${HOME_DIR}
+ENV HOME_ORG_DIR=${HOME_ORG_DIR}
+ENV HOME_PROJECT_DIR=${HOME_PROJECT_DIR}
+
+RUN apk update && \
+    apk upgrade && \
+    apk add bash binutils git nano jq wget openssh-client \
+    curl zip unzip busybox sudo net-tools \
+    build-base gcc openssl-dev git \
+    file zlib-dev \
+    util-linux rsync
+SHELL ["/bin/bash", "-c"]
+
+RUN if getent group ${GID}; \
+  then groupmod -g $((GID+3333)) $(getent group ${GID} | cut -d: -f1); fi
+RUN if getent passwd ${UID}; \
+  then usermod -u $((UID+3333)) $(getent passwd ${UID} | cut -d: -f1); fi
+
+# START ::: add-os-user
+RUN set -x ; \
+    echo "GID: ${GID}, APPGRP: ${APPGRP}, APPUSR: ${APPUSR}" && \
+    addgroup -g ${GID} ${APPGRP} && \
+    adduser -D -h "${HOME_DIR}" -G ${APPGRP} -s "/bin/bash" -u ${UID} ${APPUSR}
+
+RUN mkdir -p "${HOME_DIR}" && chown ${APPUSR}:${APPGRP} "${HOME_DIR}"
+
+RUN echo "${APPUSR} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN echo "${APPGRP} ALL=(ALL) NOPASSWD: /usr/bin/npm" >> /etc/sudoers
+
+RUN echo "export PS1='\$(date +\"%F %T\") \u@\h  \w \n '" >> ${HOME_DIR}/.bashrc && \
+  echo "cd ${HOME_PROJECT_DIR}" >> ${HOME_DIR}/.bashrc && \
+  chown -R ${APPUSR}:${APPGRP} ${HOME_DIR} && \
+  chmod -R 0775 ${HOME_DIR}
+
+USER ${APPUSR}
