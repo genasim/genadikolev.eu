@@ -1,4 +1,6 @@
 include $(wildcard ./utils/docker/.conf)
+GID := $(shell id -g)
+UID := $(shell id -u)
 export
 
 include $(wildcard ./utils/make/*.func.mk)

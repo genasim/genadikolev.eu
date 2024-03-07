@@ -9,6 +9,7 @@ start:
 	
 	@echo "before attaching run: \e[1mdocker logs ${WUI_CONTAINER_NAME}\e[0m"
 	@echo "to attach run: \e[1mdocker exec -it ${WUI_CONTAINER_NAME} bash\e[0m"
+	@echo "WUI running on: \e[1mhttp://localhost:${WUI_PORT}\e[0m"
 	@echo "\n"
 
 
@@ -24,4 +25,5 @@ start-no-cache:
 	
 	@echo "before attaching run: \e[1mdocker logs ${WUI_CONTAINER_NAME}\e[0m"
 	@echo "to attach run: \e[1mdocker exec -it ${WUI_CONTAINER_NAME} bash\e[0m"
+	@echo "WUI running on: \e[1mhttp://localhost:${WUI_PORT}\e[0m"
 	@echo "\n"
