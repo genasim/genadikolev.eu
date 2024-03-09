@@ -12,6 +12,8 @@ interface LayoutProps {
 
 const WholescreenImage = styled.img`
   position: absolute;
+  top: 0;
+  left: 0;
   object-fit: cover;
   width: 100vw;
   height: 100vh;
@@ -19,7 +21,7 @@ const WholescreenImage = styled.img`
 
 const PageContainer = styled.div`
   position: relative;
-  padding: 6rem 9vw;
+  margin: 6rem 9vw 0;
 `
 
 interface GlobalsModel {
