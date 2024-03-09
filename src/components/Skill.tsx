@@ -4,6 +4,7 @@ import React from 'react'
 interface SkillProps {
   progress?: number
   name?: string
+  className?: string
 }
 
 const AnimatedProgressBar: React.FC<{progress?: number}> = ({ progress }) => (
@@ -20,9 +21,9 @@ const AnimatedProgressBar: React.FC<{progress?: number}> = ({ progress }) => (
       </div>
 )
 
-const Skill: React.FC<SkillProps> = ({ progress, name }) => {
+const Skill: React.FC<SkillProps> = ({ progress, name, className }) => {
   return (
-    <div>
+    <div className={className}>
       <div className="d-flex justify-content-between">
         <h4>{name}</h4>
         <h4>{progress}%</h4>

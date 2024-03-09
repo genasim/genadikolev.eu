@@ -1,39 +1,18 @@
 [
   {
-    "title": "Languages & Databases",
-    "skills": [
-      {
-        "title": "Java",
-        "progress": 50
-      },
-      {
-        "title": "PHP",
-        "progress": 50
-      },
-      {
-        "title": "JavaScript",
-        "progress": 50
-      },
-      {
-        "title": "Python",
-        "progress": 50
-      },
-      {
-        "title": "MySQL",
-        "progress": 50
-      }
-    ]
+    "name": "Javascript",
+    "progress": 83
   },
   {
-    "title": "Frameworks & Technologies",
-    "skills": [
-    
-    ]
+    "name": "React",
+    "progress": 70
   },
   {
-    "title": "Tools & Platforms",
-    "skills": [
-
-    ]
+    "name": "Docker",
+    "progress": 63
+  },
+  {
+    "name": "Flutter",
+    "progress": 40
   }
 ]
