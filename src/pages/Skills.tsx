@@ -3,6 +3,7 @@ import FallbackSpinner from '../components/FallbackSpinner'
 import Skill from '../components/Skill'
 import useEndpoint from '../hooks/useEndpoint'
 import styled from 'styled-components'
+import useSetScreenImg from '../hooks/useSetScreenImg'
 
 interface SkillModel {
   progress: number
@@ -15,9 +16,10 @@ const SkillsSection = styled.div`
 `
 
 const SkillsPage = () => {
-  const { data: skills, isLoading } =
-    useEndpoint<SkillModel[]>('skills')
-
+  const { data: skills, isLoading } = useEndpoint<SkillModel[]>('skills')
+  
+  useSetScreenImg("images/backgrounds/skills.jpg")
+  
   if (isLoading || skills === null) return <FallbackSpinner />
 
   return (
