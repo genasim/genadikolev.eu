@@ -22,6 +22,7 @@ const WholescreenImage = styled.img`
 const PageContainer = styled.div`
   position: relative;
   margin: 6rem 9vw 0;
+  height: calc(100vh - 12rem);
 `
 
 interface GlobalsModel {
