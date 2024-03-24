@@ -13,4 +13,4 @@ echo "  -> Running: bun install"
 bun install
 
 echo "  -> Running: bun run dev" 
-bun run dev
+sudo bun run dev
