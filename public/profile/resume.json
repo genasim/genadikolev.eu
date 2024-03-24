@@ -4,21 +4,24 @@
         "name": "XYZ Ltd",
         "place": "Abu Dabi",
         "date": "06/20XX – Present",
+        "tags": [
+            "React.js", "Docker"
+        ],
         "roles": [
             {
                 "title": "Software Engineer",
                 "occupation": "Full-time",
                 "descriptions": [
-                    "Integrated **2** new product.",
-                    "Worked on adding **def** to **bcd**. Improved speed by 50%."
+                    "Integrated 2 new product.",
+                    "Worked on adding def to bcd. Improved speed by 50%."
                 ]
             },
             {
                 "title": "Engineer",
                 "occupation": "Full-time",
                 "descriptions": [
-                    "Integrated **2** new product.",
-                    "Worked on adding **def** to **bcd**. Improved speed by 50%."
+                    "Integrated 2 new product.",
+                    "Worked on adding def to bc. Improved speed by 50%."
                 ]
             }
         ]
@@ -26,14 +29,17 @@
     {
         "type": "study",
         "name": "Sofia University",
-        "place": "Sofia",
+        "place": "Sofia, Bulgaria",
         "date": "10/2023 – Present",
+        "tags": [
+            "C++", "Node.js"
+        ],
         "roles": [
             {
                 "title": "Information Systems - B.A.",
                 "descriptions": [
-                    "Integrated **2** new product.",
-                    "Worked on adding **def** to **bcd**. Improved speed by 50%."
+                    "Integrated 2 new product.",
+                    "Worked on adding def to abc. Improved speed by 50%."
                 ]
             }
         ]
