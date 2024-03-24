@@ -7,6 +7,7 @@ $danger:    #ef0261;
 $light:     #e5e4db;
 $dark:      #1f1f1f;
 $white:     #fff;
+$accent:    #2c2c2c;
 
 :export {
   primary:   $primary;
@@ -19,4 +20,5 @@ $white:     #fff;
   dark:      $dark;
   white:     $white;
   background:$dark;
+  accent:    $accent;
 }
