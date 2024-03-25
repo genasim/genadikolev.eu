@@ -8,7 +8,7 @@ import {
 } from 'react-bootstrap'
 import { TbDownload, TbMenu } from 'react-icons/tb'
 import { Link, useLocation } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import media from 'styled-media-query'
 import pages from '../pages'
 import IconButton from './IconButton'
@@ -76,12 +76,12 @@ interface NavbarProps {
   cvUrl?: string
 }
 
-
 const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
   const location = useLocation()
   const [showSidebar, setShowSidebar] = useState(false)
 
   const handleToggleSidebar = () => setShowSidebar(!showSidebar)
+  const theme = useTheme()
 
   return (
     <>
@@ -129,22 +129,24 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
       <Offcanvas
         style={{
           width: '5rem',
-          background: 'transparent',
+          background: theme.dark,
           border: '0px',
         }}
         show={showSidebar}
         onHide={handleToggleSidebar}
         placement="end"
       >
-        <Offcanvas.Header closeButton />
-        <Offcanvas.Body className="mt-2 d-flex flex-column">
+        <Offcanvas.Header />
+        <Offcanvas.Body className="mt-2 d-flex flex-column justify-content-center gap">
           {pages.map(page => (
             <IconButton
+              className="my-4"
+              iconColor="light"
               key={page.title}
               title={page.title}
             >
               <Link
-                className="text-decoration-none"
+                className="text-decoration-none text-light"
                 to={page.path}
               >
                 {page.title}
@@ -152,6 +154,7 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
             </IconButton>
           ))}
           <IconButton
+            className="my-4"
             variant="primary"
             iconColor="white"
             title="CV"
