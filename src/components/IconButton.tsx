@@ -30,7 +30,7 @@ const IconButton: React.FC<IconButtonProps> = ({
        text-primary ${className}`}
     >
       <Icon
-        size={30}
+        size={26}
         color={theme[iconColor ?? 'secondary']}
       />
       {children}

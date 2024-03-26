@@ -136,11 +136,10 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
         onHide={handleToggleSidebar}
         placement="end"
       >
-        <Offcanvas.Header />
-        <Offcanvas.Body className="mt-2 d-flex flex-column justify-content-center gap">
+        <Offcanvas.Body className="mt-2 d-flex flex-column justify-content-around">
+          <div className='mt-2 d-flex flex-column justify-content-around flex-grow-1'>
           {pages.map(page => (
             <IconButton
-              className="my-4"
               iconColor="light"
               key={page.title}
               title={page.title}
@@ -153,8 +152,10 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
               </Link>
             </IconButton>
           ))}
+          </div>
+          <div className='flex-0'>
           <IconButton
-            className="my-4"
+            className="my-2"
             variant="primary"
             iconColor="white"
             title="CV"
@@ -166,6 +167,7 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
               CV
             </NavLink>
           </IconButton>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>
