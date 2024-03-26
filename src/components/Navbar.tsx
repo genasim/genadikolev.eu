@@ -6,13 +6,13 @@ import {
   Navbar as Navbar_BS,
   Offcanvas,
 } from 'react-bootstrap'
-import { MdTableRows } from "react-icons/md"
+import { MdTableRows } from 'react-icons/md'
 import { TbDownload } from 'react-icons/tb'
-import { Link, useLocation } from 'react-router-dom'
-import styled, { useTheme } from 'styled-components'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 import media from 'styled-media-query'
 import pages from '../pages'
-import IconButton from './IconButton'
+import IconLink from './IconLink'
 
 const NavLink = styled(Link)`
   position: relative;
@@ -80,9 +80,9 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
   const location = useLocation()
   const [showSidebar, setShowSidebar] = useState(false)
+  const navigate = useNavigate()
 
   const handleToggleSidebar = () => setShowSidebar(!showSidebar)
-  const theme = useTheme()
 
   return (
     <>
@@ -139,36 +139,24 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
         placement="end"
       >
         <Offcanvas.Body className="mt-2 d-flex flex-column justify-content-around">
-          <div className='mt-2 d-flex flex-column justify-content-around flex-grow-1'>
-          {pages.map(page => (
-            <IconButton
-              iconColor="light"
-              key={page.title}
-              title={page.title}
-            >
-              <Link
-                className="text-decoration-none text-light"
-                to={page.path}
-              >
-                {page.title}
-              </Link>
-            </IconButton>
-          ))}
+          <div className="mt-2 d-flex flex-column justify-content-around flex-grow-1">
+            {pages.map(page => (
+              <IconLink
+                key={page.title}
+                title={page.title}
+                handleOnClick={() => {
+                  if (page.path) navigate(page.path)
+                }}
+              />
+            ))}
           </div>
-          <div className='flex-0'>
-          <IconButton
-            className="my-2"
-            variant="primary"
-            iconColor="white"
-            title="CV"
-          >
-            <NavLink
-              className="text-decoration-none"
-              to={cvUrl ?? ''}
-            >
-              CV
-            </NavLink>
-          </IconButton>
+          <div className="flex-0">
+            <IconLink
+              variant="primary"
+              title="CV"
+              as="a"
+              href={cvUrl ?? ''}
+            />
           </div>
         </Offcanvas.Body>
       </Offcanvas>
