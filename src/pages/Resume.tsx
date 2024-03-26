@@ -1,14 +1,15 @@
-import useSetScreenImg from '../hooks/useSetScreenImg'
+import { GiGraduateCap } from 'react-icons/gi'
+import { MdWork } from 'react-icons/md'
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
-import useEndpoint from '../hooks/useEndpoint'
-import FallbackSpinner from '../components/FallbackSpinner'
 import { useTheme } from 'styled-components'
-import { GiGraduateCap } from "react-icons/gi";
-import { MdWork } from "react-icons/md";
+import FallbackSpinner from '../components/FallbackSpinner'
+import Tag from '../components/Tag'
+import useEndpoint from '../hooks/useEndpoint'
+import useSetScreenImg from '../hooks/useSetScreenImg'
 
 interface JobModel {
   type: string
@@ -29,7 +30,8 @@ const resolveJobType = (type: string) => {
       return MdWork
     case 'study':
       return GiGraduateCap
-    default: return null
+    default:
+      return null
   }
 }
 
@@ -37,6 +39,7 @@ const ResumePage = () => {
   useSetScreenImg('images/backgrounds/resume.jpg')
   const { data: occupations, isLoading } =
     useEndpoint<JobModel[]>('resume')
+  const theme = useTheme()
 
   if (isLoading) return <FallbackSpinner />
 
@@ -45,7 +48,6 @@ const ResumePage = () => {
       <VerticalTimeline>
         {occupations?.map(job => {
           const Icon = resolveJobType(job.type)
-          const theme = useTheme()
 
           return (
             <VerticalTimelineElement
@@ -63,12 +65,12 @@ const ResumePage = () => {
               }}
               icon={Icon && <Icon />}
             >
-              {job.tags?.map(tag => (
-                <div className="btn btn-secondary mb-3 mx-2">
-                  {tag}
-                </div>
-              ))}
-              <div className="d-flex justify-content-between">
+              <div className="mb-2">
+                {job.tags?.map(tag => (
+                  <Tag label={tag} />
+                ))}
+              </div>
+              <div className="d-flex justify-content-between flex-wrap">
                 <h3 className="text-primary">
                   <b>{job.name}</b>
                 </h3>
