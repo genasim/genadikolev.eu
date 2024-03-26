@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navbar, Offcanvas } from 'react-bootstrap'
-import { TbMenu } from 'react-icons/tb'
+import { IoShareSocialSharp } from 'react-icons/io5'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Social from './Social'
@@ -23,32 +23,11 @@ const StyledSidebar = styled.div`
 `
 
 const VerticalLine = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 10%; // leave space at the top
-  bottom: 10%; // leave space at the bottom
-  width: 1px; // Width of the line
-  background: ${props => props.theme.light};
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    left: -50%;
-    width: 1px; // Match the width of the vertical line
-    height: 15rem; // Height of the gaps
-    background: ${props =>
-      props.theme.background}; // Make the gaps transparent
-  }
-  &:before {
-    top: calc(
-      50% - 60px
-    ); // Adjust this value to position the gap above the social links
-  }
-  &:after {
-    bottom: calc(
-      50% - 60px
-    ); // Adjust this value to position the gap below the social links
-  }
+  height: 100%;
+  max-height: 15.5rem;
+  width: 1px;
+  background-color: ${props => props.theme.light}; /* Line color */
+  margin: 2rem auto;
 `
 
 const SocialLinks = styled.div`
@@ -64,8 +43,8 @@ const ResponsiveSideNavbarToggle = styled(Navbar)`
   `}
 `
 
-const StyledTbMenu = styled(TbMenu)`
-  color: ${props => props.theme.white}; /* Adjust color as needed */
+const StyledTbMenu = styled(IoShareSocialSharp)`
+  color: ${props => props.theme.white};
   display: none;
   cursor: pointer;
 
@@ -99,6 +78,7 @@ const SocialsSidebar: React.FC<SocialsSidebarProps> = ({
             />
           ))}
         </SocialLinks>
+        <VerticalLine />
       </StyledSidebar>
 
       <ResponsiveSideNavbarToggle
@@ -123,7 +103,7 @@ const SocialsSidebar: React.FC<SocialsSidebarProps> = ({
         placement="start"
       >
         <Offcanvas.Header closeButton />
-        <Offcanvas.Body className="mt-2 d-flex flex-column">
+        <Offcanvas.Body className="mt-2 d-flex flex-column justify-content-center">
           <SocialLinks>
             {socials?.map(social => (
               <Social

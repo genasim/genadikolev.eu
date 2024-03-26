@@ -6,9 +6,10 @@ import {
   Navbar as Navbar_BS,
   Offcanvas,
 } from 'react-bootstrap'
-import { TbDownload, TbMenu } from 'react-icons/tb'
+import { MdTableRows } from "react-icons/md"
+import { TbDownload } from 'react-icons/tb'
 import { Link, useLocation } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import media from 'styled-media-query'
 import pages from '../pages'
 import IconButton from './IconButton'
@@ -48,7 +49,7 @@ const NavLink = styled(Link)`
   }
 `
 
-const StyledTbMenu = styled(TbMenu)`
+const StyledTbMenu = styled(MdTableRows)`
   color: ${props => props.theme.white}; /* Adjust color as needed */
   display: none;
   cursor: pointer;
@@ -76,12 +77,12 @@ interface NavbarProps {
   cvUrl?: string
 }
 
-
 const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
   const location = useLocation()
   const [showSidebar, setShowSidebar] = useState(false)
 
   const handleToggleSidebar = () => setShowSidebar(!showSidebar)
+  const theme = useTheme()
 
   return (
     <>
@@ -129,6 +130,7 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
       <Offcanvas
         style={{
           width: '5rem',
+          // background: theme.dark,
           background: 'transparent',
           border: '0px',
         }}
@@ -136,22 +138,26 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
         onHide={handleToggleSidebar}
         placement="end"
       >
-        <Offcanvas.Header closeButton />
-        <Offcanvas.Body className="mt-2 d-flex flex-column">
+        <Offcanvas.Body className="mt-2 d-flex flex-column justify-content-around">
+          <div className='mt-2 d-flex flex-column justify-content-around flex-grow-1'>
           {pages.map(page => (
             <IconButton
+              iconColor="light"
               key={page.title}
               title={page.title}
             >
               <Link
-                className="text-decoration-none"
+                className="text-decoration-none text-light"
                 to={page.path}
               >
                 {page.title}
               </Link>
             </IconButton>
           ))}
+          </div>
+          <div className='flex-0'>
           <IconButton
+            className="my-2"
             variant="primary"
             iconColor="white"
             title="CV"
@@ -163,6 +169,7 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
               CV
             </NavLink>
           </IconButton>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>

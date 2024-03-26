@@ -26,11 +26,11 @@ const IconButton: React.FC<IconButtonProps> = ({
   return (
     <Button
       variant={variant ?? 'transparent'}
-      className={`d-flex flex-column align-items-center my-3
+      className={`d-flex flex-column align-items-center
        text-primary ${className}`}
     >
       <Icon
-        size={30}
+        size={26}
         color={theme[iconColor ?? 'secondary']}
       />
       {children}

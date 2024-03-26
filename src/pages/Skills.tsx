@@ -23,7 +23,7 @@ const SkillsPage = () => {
   if (isLoading || skills === null) return <FallbackSpinner />
 
   return (
-    <section className="h-100 w-100 d-flex justify-content-around align-items-center">
+    <section className="h-100 w-100 d-flex justify-content-around align-items-center flex-wrap">
       <QuoteCard quote="Crafting code, one line at a time" />
 
       <SkillsSection className="ps-5">

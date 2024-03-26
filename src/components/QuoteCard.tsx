@@ -1,13 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import media from 'styled-media-query'
 
 const Card = styled.div`
   width: 23rem;
   height: 30rem;
-  ${media.lessThan('large')`
-    display: none;
-  `}
 `
 
 interface QuoteCardProps {
