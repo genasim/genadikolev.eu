@@ -32,13 +32,14 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
+          port: ${{ secrets.FTP_SERVER_PORT }}
           # Folder to upload from, must end with trailing slash /
           local-dir: ./dist/
           # Path to upload to on the server. Must end with trailing slash /
-          server-dir: ${{ secrets.ftp_domain_path }}
+          server-dir: ${{ secrets.FTP_DOMAIN_PATH }}
           # Prints which modifications will be made with current config options, but doesnt actually make any changes
           dry-run: true
           # Deletes ALL contents of server-dir, even items in excluded with exclude argument
           dangerous-clean-slate: true
           # How verbose should the information be - minimal, standard, or verbose
-          log-level: standart
+          log-level: standard
