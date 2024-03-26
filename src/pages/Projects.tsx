@@ -4,6 +4,7 @@ import ProjectCard from '../components/ProjectCard'
 import useEndpoint from '../hooks/useEndpoint'
 import { ProjectModel } from '../types/models'
 import useSetScreenImg from '../hooks/useSetScreenImg'
+import uuid from 'react-uuid'
 
 const ProjectsPage = () => {
   const {
@@ -24,7 +25,7 @@ const ProjectsPage = () => {
         <Row>
           {projects?.map(project => (
             <Col
-              key={project.title}
+              key={uuid()}
               xs={12}
               md={6}
               lg={4}

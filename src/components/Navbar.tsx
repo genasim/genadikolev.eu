@@ -13,6 +13,7 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 import pages from '../pages'
 import IconLink from './IconLink'
+import uuid from 'react-uuid'
 
 const NavLink = styled(Link)`
   position: relative;
@@ -94,7 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
           <Nav className="mx-auto py-4">
             {pages.map(page => (
               <NavLink
-                key={page.path}
+                key={uuid()}
                 className={`mx-4 fs-4 ${
                   location.pathname === page.path ? 'active' : ''
                 }`}
@@ -142,7 +143,7 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
           <div className="mt-2 d-flex flex-column justify-content-around flex-grow-1">
             {pages.map(page => (
               <IconLink
-                key={page.title}
+                key={uuid()}
                 title={page.title}
                 handleOnClick={() => {
                   if (page.path) navigate(page.path)

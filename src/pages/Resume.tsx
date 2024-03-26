@@ -10,6 +10,7 @@ import FallbackSpinner from '../components/FallbackSpinner'
 import Tag from '../components/Tag'
 import useEndpoint from '../hooks/useEndpoint'
 import useSetScreenImg from '../hooks/useSetScreenImg'
+import uuid from 'react-uuid'
 
 interface JobModel {
   type: string
@@ -51,6 +52,7 @@ const ResumePage = () => {
 
           return (
             <VerticalTimelineElement
+              key={uuid()}
               contentStyle={{
                 background: theme.accent,
                 color: theme.color,
@@ -67,7 +69,10 @@ const ResumePage = () => {
             >
               <div className="mb-2">
                 {job.tags?.map(tag => (
-                  <Tag label={tag} />
+                  <Tag
+                    key={uuid()}
+                    label={tag}
+                  />
                 ))}
               </div>
               <div className="d-flex justify-content-between flex-wrap">
@@ -77,16 +82,19 @@ const ResumePage = () => {
                 <h4>{job.place}</h4>
               </div>
               {job.roles?.map(role => (
-                <div className="my-3">
+                <div
+                  key={uuid()}
+                  className="my-3"
+                >
                   <h4>
                     {role.title}
                     {role.occupation && ` - ${role.occupation}`}
                   </h4>
                   {role.descriptions?.map(description => (
-                    <>
+                    <div key={uuid()}>
                       <span>{description}</span>
                       <br />
-                    </>
+                    </div>
                   ))}
                 </div>
               ))}

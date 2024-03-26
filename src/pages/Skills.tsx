@@ -4,6 +4,7 @@ import Skill from '../components/Skill'
 import useEndpoint from '../hooks/useEndpoint'
 import styled from 'styled-components'
 import useSetScreenImg from '../hooks/useSetScreenImg'
+import uuid from 'react-uuid'
 
 interface SkillModel {
   progress: number
@@ -30,7 +31,7 @@ const SkillsPage = () => {
         <section className="gap-0 row-gap-3">
           {skills.map(skill => (
             <Skill
-              key={skill.name}
+              key={uuid()}
               className="my-5"
               name={skill.name}
               progress={skill.progress}

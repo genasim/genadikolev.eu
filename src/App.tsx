@@ -8,6 +8,7 @@ import ScreenImageLayout from './Layout'
 import pages from './pages'
 import theme from './scss/_variables.module.scss'
 import './scss/index.scss'
+import uuid from 'react-uuid'
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
             <Routes>
               {pages.map(page => (
                 <Route
-                  key={page.path}
+                  key={uuid()}
                   path={page.path}
                   element={ <page.component />}
                 />

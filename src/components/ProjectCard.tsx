@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 import { ProjectModel } from '../types/models'
 import Tag from './Tag'
+import uuid from 'react-uuid'
 
 const CardImg = styled.img`
   object-fit: cover;
@@ -30,7 +31,7 @@ const ProjectCard: React.FC<ProjectModel> = ({
     <TagsArea>
       {tags?.map(tag => (
         <span
-          key={tag}
+          key={uuid()}
           className="m-1"
         >
           <Tag label={tag} />
@@ -53,7 +54,7 @@ const ProjectCard: React.FC<ProjectModel> = ({
       <div className="d-flex flex-wrap">
         {links?.map(link => (
           <a
-            key={link.text}
+            key={uuid()}
             href={link.href}
             target='_blank'
             className="btn btn-primary card-link"

@@ -4,6 +4,7 @@ import { IoShareSocialSharp } from 'react-icons/io5'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Social from './Social'
+import uuid from 'react-uuid'
 
 const StyledSidebar = styled.div`
   position: fixed;
@@ -72,7 +73,7 @@ const SocialsSidebar: React.FC<SocialsSidebarProps> = ({
         <SocialLinks>
           {socials?.map(social => (
             <Social
-              key={social.href}
+              key={uuid()}
               href={social.href}
               network={social.network}
             />
@@ -107,7 +108,7 @@ const SocialsSidebar: React.FC<SocialsSidebarProps> = ({
           <SocialLinks>
             {socials?.map(social => (
               <Social
-                key={social.href}
+                key={uuid()}
                 href={social.href}
                 network={social.network}
               />
