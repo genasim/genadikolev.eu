@@ -11,7 +11,7 @@ interface LayoutProps {
 }
 
 const WholescreenImage = styled.img`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   object-fit: cover;
