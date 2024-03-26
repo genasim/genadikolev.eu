@@ -55,6 +55,7 @@ const ProjectCard: React.FC<ProjectModel> = ({
           <a
             key={link.text}
             href={link.href}
+            target='_blank'
             className="btn btn-primary card-link"
           >
             {link.text}
