@@ -3,6 +3,7 @@ import FallbackSpinner from '../components/FallbackSpinner'
 import ProjectCard from '../components/ProjectCard'
 import useEndpoint from '../hooks/useEndpoint'
 import { ProjectModel } from '../types/models'
+import useSetScreenImg from '../hooks/useSetScreenImg'
 
 const ProjectsPage = () => {
   const {
@@ -10,6 +11,8 @@ const ProjectsPage = () => {
     isLoading,
     error,
   } = useEndpoint<ProjectModel[]>('projects')
+
+  useSetScreenImg('images/backgrounds/projects.jpg')
 
   if (isLoading) return <FallbackSpinner />
 
