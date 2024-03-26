@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navbar, Offcanvas } from 'react-bootstrap'
-import { TbMenu } from 'react-icons/tb'
+import { IoShareSocialSharp } from 'react-icons/io5'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Social from './Social'
@@ -43,7 +43,7 @@ const ResponsiveSideNavbarToggle = styled(Navbar)`
   `}
 `
 
-const StyledTbMenu = styled(TbMenu)`
+const StyledTbMenu = styled(IoShareSocialSharp)`
   color: ${props => props.theme.white};
   display: none;
   cursor: pointer;

@@ -6,7 +6,8 @@ import {
   Navbar as Navbar_BS,
   Offcanvas,
 } from 'react-bootstrap'
-import { TbDownload, TbMenu } from 'react-icons/tb'
+import { MdTableRows } from "react-icons/md"
+import { TbDownload } from 'react-icons/tb'
 import { Link, useLocation } from 'react-router-dom'
 import styled, { useTheme } from 'styled-components'
 import media from 'styled-media-query'
@@ -48,7 +49,7 @@ const NavLink = styled(Link)`
   }
 `
 
-const StyledTbMenu = styled(TbMenu)`
+const StyledTbMenu = styled(MdTableRows)`
   color: ${props => props.theme.white}; /* Adjust color as needed */
   display: none;
   cursor: pointer;
@@ -129,7 +130,8 @@ const Navbar: React.FC<NavbarProps> = ({ cvUrl }) => {
       <Offcanvas
         style={{
           width: '5rem',
-          background: theme.dark,
+          // background: theme.dark,
+          background: 'transparent',
           border: '0px',
         }}
         show={showSidebar}
