@@ -1,0 +1,24 @@
+$primary:   #c1620a;
+$secondary: #544932;
+$success:   #539f05;
+$info:      #109737;
+$warning:   #ffbd53;
+$danger:    #ef0261;
+$light:     #e5e4db;
+$dark:      #1f1f1f;
+$white:     #fff;
+$accent:    #2c2c2c;
+
+:export {
+  primary:   $primary;
+  secondary: $secondary;
+  success:   $success;
+  info:      $info;
+  warning:   $warning;
+  danger:    $danger;
+  light:     $light;
+  dark:      $dark;
+  white:     $white;
+  background:$dark;
+  accent:    $accent;
+}

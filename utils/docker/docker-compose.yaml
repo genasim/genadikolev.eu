@@ -1,0 +1,14 @@
+services:
+  wui:
+    env_file:
+      - ./.conf
+    image: ${WUI_CONTAINER_IMAGE}
+    container_name: ${WUI_CONTAINER_NAME}
+    ports:
+      - ${WUI_PORT}:5173  # Default Vite port
+    build:
+      context: ../..
+      dockerfile: ./utils/docker/Dockerfile
+    volumes:
+      - ${PROJECT_DIR}:${HOME_PROJECT_DIR}
+    command: ["bash", "${HOME_PROJECT_DIR}/utils/scripts/start-project.sh"]

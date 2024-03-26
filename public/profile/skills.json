@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Javascript",
+    "progress": 83
+  },
+  {
+    "name": "React",
+    "progress": 70
+  },
+  {
+    "name": "Docker",
+    "progress": 63
+  },
+  {
+    "name": "Flutter",
+    "progress": 40
+  }
+]
