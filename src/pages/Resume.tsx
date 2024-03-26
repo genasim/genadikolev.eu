@@ -67,7 +67,7 @@ const ResumePage = () => {
               }}
               icon={Icon && <Icon />}
             >
-              <div className="mb-2">
+              <div className="mb-2 d-flex gap-2">
                 {job.tags?.map(tag => (
                   <Tag
                     key={uuid()}
