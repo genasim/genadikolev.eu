@@ -3,7 +3,7 @@ interface TagProps {
 }
 
 const Tag: React.FC<TagProps> = ({ label }) => (
-  <span className="bg-secondary text-white rounded-2 p-1">{label}</span>
+  <span className="bg-primary border border-dark text-white rounded-2 p-2">{label}</span>
 )
 
 export default Tag

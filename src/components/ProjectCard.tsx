@@ -51,7 +51,7 @@ const ProjectCard: React.FC<ProjectModel> = ({
         <p className="card-text my-3">{text}</p>
       </div>
 
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap justify-content-end">
         {links?.map(link => (
           <a
             key={uuid()}
