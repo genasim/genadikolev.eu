@@ -1,27 +1,18 @@
 [
     {
         "type": "work",
-        "name": "XYZ Ltd",
-        "place": "Abu Dabi",
-        "date": "06/20XX – Present",
+        "name": "Csitea Oy Ab",
+        "place": "Remote",
+        "date": "10-2023 – 03-2024",
         "tags": [
-            "React.js", "Docker"
+            "React.js", "Docker", "GNU Make"
         ],
         "roles": [
             {
-                "title": "Software Engineer",
-                "occupation": "Full-time",
+                "title": "Junior Full-Stack Developer",
                 "descriptions": [
-                    "Integrated 2 new product.",
-                    "Worked on adding def to bcd. Improved speed by 50%."
-                ]
-            },
-            {
-                "title": "Engineer",
-                "occupation": "Full-time",
-                "descriptions": [
-                    "Integrated 2 new product.",
-                    "Worked on adding def to bc. Improved speed by 50%."
+                    "Worked as the company’s Frontend specialist in a small team, operating mainly in Finland",
+                    "Dealt with IT consulting, DevOps, CI/CD, Cloud provisioning and Software infrastructure"
                 ]
             }
         ]
@@ -30,16 +21,66 @@
         "type": "study",
         "name": "Sofia University",
         "place": "Sofia, Bulgaria",
-        "date": "10/2023 – Present",
+        "date": "09-2023 – Present",
         "tags": [
-            "C++", "Node.js"
+            "C++", "Node.js", "Haskel"
         ],
         "roles": [
             {
                 "title": "Information Systems - B.A.",
+                "descriptions": []
+            }
+        ]
+    },
+    {
+        "type": "work",
+        "name": "AuxCode Ltd",
+        "place": "Sofia, Bulgaria",
+        "date": "03-2023 – 10-2023",
+        "tags": [
+            "Typescript", "MongoDB", "Flutter", "TensorFlow"
+        ],
+        "roles": [
+            {
+                "title": "Full-Stack Developer Intern",
                 "descriptions": [
-                    "Integrated 2 new product.",
-                    "Worked on adding def to abc. Improved speed by 50%."
+                    "Worked on several projects, both self-training personal and commercial ones with React.js, MongoDB, Node.js and Flutter.",
+                    "Picked up practical and theoretical fundamentals and more while solving real-life customer issues."
+                ]
+            }
+        ]
+    },
+    {
+        "type": "study",
+        "name": "National High School of Mathematics and Science",
+        "place": "Sofia, Bulgaria",
+        "date": "09-2021 – 05-2023",
+        "tags": [
+            "Maths", "IT"
+        ],
+        "roles": [
+            {
+                "title": "Mathematics & Informatics",
+                "descriptions": [ 
+                    "Qualified for the final round of NOIT`22 - 'Modern visual information systems' category"
+                ]
+            }
+        ]
+    },
+    {
+        "type": "work",
+        "name": "MVM Ltd",
+        "place": "Khaskovo, Bulgaria",
+        "date": "06-2020 – Present",
+        "tags": [
+            "Hardware", "Computers", "CCTV", "Networking"
+        ],
+        "roles": [
+            {
+                "descriptions": [
+                    "Started working at my family's computer hardware store during summer breaks",
+                    "Learned the essentials of computer hardware, systems, networking and managing, as well as CCTV installation and management",
+                    "My time there inspired me to further pursue programming professionally"
                 ]
             }
         ]

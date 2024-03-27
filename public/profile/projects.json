@@ -1,42 +1,32 @@
 [
   {
-    "image": "images/backgrounds/home.png",
+    "image": "images/projects/portfolio-project.png",
     "title": "Dev Portfolio",
-    "text": "- Developer Portfolio Website made in React\n -  Fully customisable and dynamic, easily change data and images.\n - Dark Mode Support",
+    "text": "My personal website portfolio. Emphasis was put on a minimalistic design and layout for easier navigation. Built with React.js + Typescript + Bootstrap",
     "links": [
       {
         "text": "GitHub",
-        "href": "https://github.com/mayankagarwal09/dev-portfolio"
+        "href": "https://github.com/genasim/genadikolev.eu"
       },
       {
         "text": "Live",
-        "href": "https://mayankagarwal.me"
+        "href": "https://genadikolev.eu"
       }
     ],
-    "tags": ["React", "Portfolio", "JavaScript"]
+    "tags": ["Portfolio", "React.js", "TypeScript", "Bootstrap"]
   },
   {
-    "image": "images/projects/caaring-poster.png",
-    "title": "Caaring -  Cab Share App",
-    "text": "- A Cab Sharing web app made using **Django** for **VIT** Students. People can create a new cab or request to join an existing cab.\n - Added User authentication and password reset using **SendGrid**.\n - Deployed on **heroku** using **gunicorn**.",
+    "image": "images/projects/listvenitsa-project.jpg",
+    "title": "Listvenitsa Guest Houses",
+    "text": "A WordPress website for a client's guest houses. The site provides visitors with essential information about the accommodations, including details on amenities, houses and nearby landmarks. Emphasizing user experience, the website features a clean layout and intuitive navigation",
     "links": [
       {
-        "text": "GitHub",
-        "href": "https://github.com/mayankagarwal09/Caaring"
-      },
-      {
         "text": "Live",
-        "href": "http://caaring.herokuapp.com"
+        "href": "https://listvenitsa.com/"
       }
     ],
     "tags": [
-      "Python",
-      "Django",
-      "BootStrap",
-      "SendGrid",
-      "Heroku",
-      "Gunicorn",
-      "VIT"
+      "Wordpress", "Freelance"
     ]
   }
 ]
