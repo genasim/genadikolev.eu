@@ -67,7 +67,7 @@ const ResumePage = () => {
               }}
               icon={Icon && <Icon />}
             >
-              <div className="mb-2 d-flex gap-2">
+              <div className="mb-3 d-flex gap-2">
                 {job.tags?.map(tag => (
                   <Tag
                     key={uuid()}
@@ -88,14 +88,12 @@ const ResumePage = () => {
                 >
                   <h4>
                     {role.title}
-                    {role.occupation && ` - ${role.occupation}`}
                   </h4>
-                  {role.descriptions?.map(description => (
-                    <div key={uuid()}>
-                      <span>{description}</span>
-                      <br />
-                    </div>
-                  ))}
+                  <ul>
+                    {role.descriptions?.map(description => (
+                      <li key={uuid()} className='my-2' >{description}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </VerticalTimelineElement>
